@@ -15,7 +15,7 @@
 * BeProud.inc
 * 情弱プログラマー
 * https://twitter.com/tell_k
-* http://tell-k.github.io/pyconjp2016/
+* https://tell-k.github.io/pyconjp2016/
 
 ジムリーダーもやってました(5分で陥落...)
 ==================================================
@@ -1325,9 +1325,10 @@ Macro
 参考
 ===============================
 
-* まとめ中(いっぱいある)
+* https://github.com/tell-k/pyconjp2016/blob/master/reference.rst
+* Webページ や 書籍 の著者の皆さんありがとうございます。
 
-Spciela Thanks
+Special Thanks
 ===============================
 
 * 忙しい合間を縫ってレビューしてくれた
