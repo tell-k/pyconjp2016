@@ -1,0 +1,1890 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>メタプログラミングPython</title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+  </head>
+  <body style='display: none'>
+    
+  <div class="section" id="python">
+<h1>メタプログラミングPython<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
+<div class="line-block">
+<div class="line">tell-k</div>
+<div class="line">PyCon JP 2016 (2016.09.22)</div>
+</div>
+<div class="section" id="id1">
+<h2>君の名は<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<img alt="https://pbs.twimg.com/profile_images/775582814871752704/J1TaucBz_400x400.jpg" src="https://pbs.twimg.com/profile_images/775582814871752704/J1TaucBz_400x400.jpg" />
+<img alt="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/vxjmiemo.png" src="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/vxjmiemo.png" />
+<ul class="simple">
+<li>tell-k</li>
+<li>BeProud.inc</li>
+<li>情弱プログラマー</li>
+<li><a class="reference external" href="https://twitter.com/tell_k">https://twitter.com/tell_k</a></li>
+<li><a class="reference external" href="http://tell-k.github.io/pyconjp2016/">http://tell-k.github.io/pyconjp2016/</a></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>ジムリーダーもやってました(5分で陥落...)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="https://pbs.twimg.com/media/Cs2O52rUMAATHRK.jpg"><img alt="https://pbs.twimg.com/media/Cs2O52rUMAATHRK.jpg" src="https://pbs.twimg.com/media/Cs2O52rUMAATHRK.jpg" style="width: 40%;" /></a>
+</div>
+<div class="section" id="beproud-inc-connpass">
+<h2>Beproud.inc - connpass<a class="headerlink" href="#beproud-inc-connpass" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id51">
+<img alt="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/okbyv2hm.png" src="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/okbyv2hm.png" />
+<p class="caption"><span class="caption-text"><a class="reference external" href="http://connpass.com/">http://connpass.com/</a></span></p>
+</div>
+</div>
+<div class="section" id="beproud-inc-pyq">
+<h2>Beproud.inc - PyQ<a class="headerlink" href="#beproud-inc-pyq" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id52">
+<img alt="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/wfzr_05v.png" src="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/wfzr_05v.png" />
+<p class="caption"><span class="caption-text"><a class="reference external" href="https://pyq.jp/">https://pyq.jp/</a></span></p>
+</div>
+<ul class="simple">
+<li>今年はブースも出してます！</li>
+<li>シールがもらえたり、connpassの説明をしてくれたり、PyQを体験したりできるそうです！</li>
+<li>是非足を運んでみてください！(もう時間ないけど...)</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>目的/動機<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>ふとPythonでメタプログラミングってどうやるんだ？という疑問が湧きました</li>
+<li><code class="docutils literal"><span class="pre">metaclass</span></code> などの漠然とした知識/利用はあったけど具体的にどこまでの話なのか分からず。</li>
+<li>そんな時 <strong>メタプログラミングRuby</strong> という本を思い出しました。</li>
+</ul>
+</div>
+<div class="section" id="ruby">
+<h2>メタプログラミングRuby<a class="headerlink" href="#ruby" title="Permalink to this headline">¶</a></h2>
+<div class="figure" id="id53">
+<a class="reference internal image-reference" href="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/felfgfdn.png"><img alt="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/felfgfdn.png" src="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/felfgfdn.png" style="width: 35%;" /></a>
+<p class="caption"><span class="caption-text"><a class="reference external" href="https://www.oreilly.co.jp/books/9784873117430/">https://www.oreilly.co.jp/books/9784873117430/</a></span></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>目的/動機<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>この <strong>メタプロラグミングRuby</strong> を参考にしつつPythonだったらどうやるのか？</li>
+<li>Pythonのメタプログラミングで出てくるトピックにはどんなものがあるのか？</li>
+<li>そういう話を広く浅くまとめてみようと思った次第です。(ごった煮ともいいます...)</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>対象<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Python使い始めたが、もう一歩詳しくなりたい人</li>
+<li>自分でOSSなどで、Pythonのライブラリ、フレームワークを作ってみたい人</li>
+<li>やむにやまれず、ゴツいライブラリにダイブしなければいけない人</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>前提<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>特に断りがなければ、Python3.5 前提でお話しをします。</li>
+<li>Ruby のサンプルコードは Ruby2.0 です。</li>
+<li><strong>メタプログラミングRuby</strong> から 用語名などをちょいちょい拝借してます。</li>
+<li>Pythonでは、そもそもそんな言い方しない可能性があるのでその辺注意してください。</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>目次<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>メタプログラミングとは？</li>
+<li>Class とは？</li>
+<li>Dynamic Dispatch/Method</li>
+<li>SingularMethod/GhostMethod</li>
+<li>Metaclass/Decorator/Descriptor/Moneky Patch/Operator Overload</li>
+<li>DSL/Open Class/eval/exec/Import Hook</li>
+<li>参考</li>
+<li>まとめ</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>メタプログラミングとは？<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Metaprogramming is the writing of computer programs with the ability to treat programs as their data.
+It means that a program could be designed to read, generate,
+analyse or transform other programs, and even modify itself while running.
+In some cases, this allows programmers to minimize the number of lines of
+code to express a solution (hence reducing development time)
+or it gives programs greater flexibility to efficiently handle new situations without recompilation.</p>
+<p class="attribution">&mdash;<a class="reference external" href="https://en.wikipedia.org/wiki/Metaprogramming">https://en.wikipedia.org/wiki/Metaprogramming</a></p>
+</div></blockquote>
+</div>
+<div class="section" id="id9">
+<h2>メタプログラミングとは？<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>メタプログラミングとは、データとしてプログラム自体を処理できるプログラムを記述することです。プログラムからプログラムを、読んだり、分析したり、他のプログラムに変換したり、さらに実行時に自らのプログラムを変更することを意味します。これは、いくつかのケースで、プログラマに最小限のコードで、解決策を記述できるようにしてくれます。 (つまり開発時間の短縮につながる) または、プログラムを再コンパイルする必要なしに、柔軟に新しい状況に対応できるようにしてくれます。</p>
+<p class="attribution">&mdash;<a class="reference external" href="https://en.wikipedia.org/wiki/Metaprogramming">https://en.wikipedia.org/wiki/Metaprogramming</a> (意訳です)</p>
+</div></blockquote>
+</div>
+<div class="section" id="id10">
+<h2>メタプログラミングとは？<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>コードを記述するコードを記述すること</strong></li>
+<li>言語要素を実行時に操作するコード記述すること</li>
+<li>Ruby、Pythonなどの動的な言語においては、実行時に自分自身を書き換え/実行することと理解できる</li>
+<li>コードにコードを記述させることで、<strong>DRY</strong> を実現したり、コードを書く量を削減して開発効率をあげることができる</li>
+</ul>
+</div>
+<div class="section" id="class">
+<h2>Class とは？<a class="headerlink" href="#class" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>本題に入る前に、前提としてクラス周りの話を軽くおさらい</li>
+<li>Pythonにおけるクラスとはなんなのか？</li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>Class とは？<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">type</span></code> クラス ... 全てのクラスの雛形</li>
+<li><code class="docutils literal"><span class="pre">type</span></code> にオブジェクトを渡すと型が帰ってきますが関数ではありません。</li>
+<li>クラス定義 は <code class="docutils literal"><span class="pre">type</span></code> クラス のインスンタス</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2>Class とは？<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">inspect</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="nb">object</span><span class="p">))</span>  <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span> <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="nb">type</span><span class="p">))</span>    <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="nb">object</span><span class="p">))</span> <span class="c1"># =&gt; True</span>
+
+<span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span> <span class="k">pass</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">Spam</span><span class="p">))</span>    <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">Spam</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>   <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">Spam</span><span class="p">,</span> <span class="nb">object</span><span class="p">))</span> <span class="c1"># =&gt; True</span>
+
+<span class="n">spam</span> <span class="o">=</span> <span class="n">Spam</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">isclass</span><span class="p">(</span><span class="n">spam</span><span class="p">))</span>    <span class="c1"># =&gt; False</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">spam</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>   <span class="c1"># =&gt; False</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">spam</span><span class="p">,</span> <span class="n">Spam</span><span class="p">))</span>   <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">spam</span><span class="p">,</span> <span class="nb">object</span><span class="p">))</span> <span class="c1"># =&gt; True</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>   <span class="c1"># =&gt; True</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id13">
+<h2>Class とは?<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/cpkttkrf.png"><img alt="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/cpkttkrf.png" src="https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/cpkttkrf.png" style="width: 50%;" /></a>
+<ul class="simple">
+<li><a class="reference external" href="http://postd.cc/pythons-objects-and-classes-a-visual-guide/">Pythonのオブジェクトとクラスのビジュアルガイド – 全てがオブジェクトであるということ</a></li>
+</ul>
+</div>
+<div class="section" id="type">
+<h2>type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>もう少し <code class="docutils literal"><span class="pre">type</span></code> について詳しく見る</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">type</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+
+<span class="c1"># refs http://docs.python.jp/3/library/functions.html#type</span>
+</pre></div>
+</td></tr></table></div>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">name</span></code> ... クラス名</li>
+<li><code class="docutils literal"><span class="pre">bases</span></code> ... 継承元の親クラス(tuple)</li>
+<li><code class="docutils literal"><span class="pre">dict</span></code> ... 名前空間 =&gt; 属性(メソッド/プロパティ)を管理する辞書</li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h2>type<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">type</span></code> から動的にクラスが生成可能</li>
+<li>メソッドは <code class="docutils literal"><span class="pre">self</span></code> を受け取る関数であればいい</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 前のスライドのクラス定義と同義</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello! My name is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+
+<span class="c1"># type を call することで クラスが生成できる</span>
+<span class="n">Spam</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="p">(),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;tell-k&#39;</span><span class="p">,</span> <span class="n">hello</span><span class="o">=</span><span class="n">hello</span><span class="p">))</span>
+
+<span class="n">spam</span> <span class="o">=</span> <span class="n">Spam</span><span class="p">()</span>
+<span class="n">spam</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span> <span class="c1"># =&gt; &#39;Hello! My name is tell-k&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id16">
+<h2>type<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>ちなみに組み込みの型はだいたいクラス =&gt; <code class="docutils literal"><span class="pre">type</span></code> のインスタンス</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>   <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>   <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span> <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>  <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>  <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span> <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">set</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>   <span class="c1"># =&gt; True</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">FunctionType</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>  <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">types</span><span class="o">.</span><span class="n">MethodType</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>  <span class="c1"># =&gt; True</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>  <span class="c1"># =&gt; True</span>
+
+<span class="c1"># 組み込みの名前を持たない型(functionとか) 全てtypesに定義してある</span>
+<span class="c1"># refs http://docs.python.jp/3/library/types.html</span>
+
+<span class="c1"># type 自体も typeのインスタンス</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="nb">type</span><span class="p">))</span>  <span class="c1"># =&gt; True</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id17">
+<h2>Class のまとめ<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Class は <code class="docutils literal"><span class="pre">type</span></code> のインスタンス</li>
+<li>Class は <code class="docutils literal"><span class="pre">type</span></code> により 動的に定義することが可能</li>
+<li>全ての型は Class であり <code class="docutils literal"><span class="pre">type</span></code> のインスタンスである</li>
+</ul>
+</div>
+<div class="section" id="dynamic-dispatch-method">
+<h2>Dynamic Dispatch/Method<a class="headerlink" href="#dynamic-dispatch-method" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>メタプログラミングをやっていると、「動的に〜」というのが頻出します。</li>
+<li>その中でも <strong>動的にメソッドを実行/定義する</strong> というのがよく出てきます。</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="c1"># 動的にメソッド実行 --</span>
+<span class="n">str_obj</span> <span class="o">=</span> <span class="s1">&#39;1,2,3&#39;</span>
+<span class="nb">getattr</span><span class="p">(</span><span class="n">str_obj</span><span class="p">,</span> <span class="s1">&#39;split&#39;</span><span class="p">)(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> <span class="c1"># =&gt; [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;]</span>
+<span class="c1"># = str_obj.split(&#39;,&#39;) と等価</span>
+
+<span class="c1"># 動的にメソッド定義 --</span>
+<span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span> <span class="k">pass</span>
+
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># selfを受け取る関数</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+
+<span class="n">Spam</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="n">hello</span> <span class="c1"># クラスにアサインするだけ</span>
+<span class="n">spam</span> <span class="o">=</span> <span class="n">Spam</span><span class="p">()</span>
+<span class="n">spam</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span> <span class="c1"># =&gt; Hello</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="ghost-method">
+<h2>Ghost Method<a class="headerlink" href="#ghost-method" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Ruby には <code class="docutils literal"><span class="pre">method_missing</span></code> メソッドがクラスに備わっています。</li>
+<li><code class="docutils literal"><span class="pre">method_missing</span></code>  によって <strong>該当のないメソッドの呼び出し</strong> に応答する</li>
+<li>別のオブジェクトにメソッドを呼び出し転送することにも使える( <strong>Dynamic Proxy</strong> )</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># ruby --</span>
+<span class="k">class</span> <span class="nc">Spam</span>
+  <span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+     <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">reverse</span> <span class="c1"># 文字列を反転する</span>
+  <span class="n">end</span>
+<span class="n">end</span>
+
+<span class="n">spam</span> <span class="o">=</span> <span class="n">Spam</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<span class="c1"># 存在しないメソッド「ghost_reverse」をcall</span>
+<span class="n">p</span> <span class="n">spam</span><span class="o">.</span><span class="n">ghost_reverse</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &#39;maps&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id18">
+<h2>Ghost Method<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Python では <code class="docutils literal"><span class="pre">__getattr__</span></code> という <strong>スペシャルメソッド</strong> が利用できる</li>
+<li><code class="docutils literal"><span class="pre">__getattr__</span></code> は 該当のない <strong>属性のアクセス時</strong> に呼ばれる</li>
+<li>Rubyの <code class="docutils literal"><span class="pre">method_missing</span></code> はメソッドが呼び出されて初めて実行されます</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
+
+  <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+      <span class="k">def</span> <span class="nf">_reverse</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+          <span class="k">return</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+      <span class="k">return</span> <span class="n">_reverse</span>
+
+<span class="n">spam</span> <span class="o">=</span> <span class="n">Spam</span><span class="p">()</span>
+<span class="c1"># spam.gohsrt_revers にアクセス -&gt; _reverse 関数がreturn -&gt; _reverse関数をcall</span>
+<span class="k">print</span><span class="p">(</span><span class="n">spam</span><span class="o">.</span><span class="n">ghost_reverse</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">))</span> <span class="c1"># =&gt; &#39;maps&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="ghost-method-bit-ly">
+<h2>Ghost Method - bit.ly<a class="headerlink" href="#ghost-method-bit-ly" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Python の <strong>Ghost Method</strong> の利用例</li>
+<li><a class="reference external" href="https://github.com/hellp/bitlyapi/">https://github.com/hellp/bitlyapi/</a> (大分古い。Python2のみサポート)</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">bitly</span><span class="o">.</span><span class="n">BitLy</span><span class="p">(</span><span class="n">API_USER</span><span class="p">,</span> <span class="n">API_KEY</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">shorten</span><span class="p">(</span><span class="n">longUrl</span><span class="o">=</span><span class="s1">&#39;http://github.com/larsks&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;http://github.com/larsks&#39;</span><span class="p">][</span><span class="s1">&#39;shortUrl&#39;</span><span class="p">]</span>
+
+<span class="c1"># 実は shorten というメソッドは存在しない</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id19">
+<h2>Ghost Method - bit.ly<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>メソッドをAPIのエンドポイントのパスとして扱う</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python -- 注: python2 で書かれてます</span>
+<span class="k">def</span> <span class="nf">__getattr__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+  <span class="k">def</span> <span class="nf">_</span> <span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+      <span class="c1">#  self.api_url          +  func</span>
+      <span class="c1"># &#39;http://api.bit.ly/v3&#39; + &#39;shorten&#39; =&gt; &#39;http://api.bit.ly/v3/shorten&#39;</span>
+      <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">api_url</span><span class="p">,</span> <span class="n">func</span><span class="p">])</span>
+      <span class="c1"># kwargs -&gt; longUrl はクエリパラメータとしてそのまま渡す</span>
+      <span class="n">query_string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_build_query_string</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+      <span class="n">fd</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">query_string</span><span class="p">)</span>
+      <span class="n">res</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+      <span class="k">if</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;status_code&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+          <span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;status_code&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;status_txt&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">)</span>
+      <span class="k">elif</span> <span class="ow">not</span> <span class="s1">&#39;data&#39;</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+          <span class="k">raise</span> <span class="n">APIError</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Unexpected response from bit.ly.&#39;</span><span class="p">,</span> <span class="n">res</span><span class="p">)</span>
+      <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>
+  <span class="k">return</span> <span class="n">_</span>
+
+<span class="c1"># refs https://github.com/hellp/bitlyapi/blob/master/bitlyapi/bitly.py</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="singular-method">
+<h2>Singular Method<a class="headerlink" href="#singular-method" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>特定のオブジェクト <strong>だけに</strong> 動的にメソッドを追加する</li>
+<li>Rubyでは <strong>特異メソッド</strong> と呼ばれる機能</li>
+</ul>
+<div class="highlight-ruby"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># ruby --</span>
+<span class="n">spam1</span> <span class="o">=</span> <span class="no">Spam</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+<span class="n">spam2</span> <span class="o">=</span> <span class="no">Spam</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nc">spam1</span><span class="o">.</span><span class="nf">bye</span>
+  <span class="nb">p</span> <span class="s1">&#39;ByeBye&#39;</span>
+<span class="k">end</span>
+
+<span class="n">spam1</span><span class="o">.</span><span class="n">bye</span><span class="p">()</span> <span class="c1"># =&gt; &#39;ByeBye&#39;</span>
+<span class="n">spam2</span><span class="o">.</span><span class="n">bye</span><span class="p">()</span> <span class="c1"># =&gt; NoMethodError</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id20">
+<h2>Singular method<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>オブジェクトに関数をアサインするだけではダメ</li>
+<li>Python オブジェクトにbind(束縛)して初めてメソッドとして利用可能です</li>
+<li>束縛されている = <strong>Bound Method</strong></li>
+<li>束縛されてない = <strong>Unbound Method</strong></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Spam</span><span class="p">()</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">Spam</span><span class="o">.</span><span class="n">hello</span><span class="p">)</span> <span class="c1"># =&gt; &lt;function Spam.hello at 0x1083388c8&gt;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">hello</span><span class="p">)</span> <span class="c1"># =&gt; &lt;bound method Spam.hello of &lt;__main__.Spam object at 0x1083349b0&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>Singular method<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="k">def</span> <span class="nf">bye</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ByeBye&#39;</span><span class="p">)</span>
+
+<span class="n">spam</span> <span class="o">=</span> <span class="n">Spam</span><span class="p">()</span>
+<span class="n">spam</span><span class="o">.</span><span class="n">bye</span> <span class="o">=</span> <span class="n">bye</span>
+<span class="n">spam</span><span class="o">.</span><span class="n">bye</span><span class="p">()</span> <span class="c1"># =&gt; TypeError: bye() missing 1 required positional argument: &#39;self&#39;</span>
+
+<span class="c1"># Bound Method を作るためにMethodTypeを利用する</span>
+<span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">MethodType</span>
+<span class="n">spam</span><span class="o">.</span><span class="n">bye</span> <span class="o">=</span> <span class="n">MethodType</span><span class="p">(</span><span class="n">bye</span><span class="p">,</span> <span class="n">Spam</span><span class="p">)</span>
+<span class="n">spam</span><span class="o">.</span><span class="n">bye</span><span class="p">()</span> <span class="c1"># =&gt; &quot;ByeBye&quot;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="monkey-patch">
+<h2>Monkey Patch<a class="headerlink" href="#monkey-patch" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>元のコードを変更することなく、動的にコードを拡張/変更する事の総称です。</li>
+<li>ライブラリのコードを直接変えたくない時とかに利用します</li>
+<li>テスト系のライブラリ( <code class="docutils literal"><span class="pre">unittest.mock.patch</span></code> 等) でおなじみ</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># spam.py ----</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello! Spam&#39;</span>
+
+<span class="c1"># ham.py  ----</span>
+<span class="kn">import</span> <span class="nn">spam</span>
+<span class="k">def</span> <span class="nf">patch_hello</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;HamHamHamHam!&#39;</span>
+<span class="n">spam</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="n">patch_hello</span> <span class="c1"># helloを差し替える</span>
+
+<span class="c1"># main.py -----</span>
+<span class="kn">import</span> <span class="nn">ham</span>  <span class="c1"># パッチがあたる</span>
+<span class="kn">import</span> <span class="nn">spam</span>
+
+<span class="n">spam</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span> <span class="c1"># =&gt; &#39;HamHamHamHam!&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id22">
+<h2>Monkey Patch<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>どこでパッチを当ててるのか分からなくなったりすると <strong>地獄</strong></li>
+<li>例えば <code class="docutils literal"><span class="pre">with</span></code> を 利用するなりして影響範囲を限定的にするのが良い</li>
+<li>あとは、必ずオリジナルに処理に戻せる手段を用意しましょう</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="k">class</span> <span class="nc">PatchHello</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">original_hello</span> <span class="o">=</span> <span class="n">spam</span><span class="o">.</span><span class="n">hello</span> <span class="c1"># オリジナルを保存</span>
+        <span class="n">spam</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="n">patch_hello</span> <span class="c1"># 差し替え</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exec_type</span><span class="p">,</span> <span class="n">exec_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+        <span class="n">spam</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">original_hello</span> <span class="c1"># オジリナルを復元</span>
+
+<span class="k">with</span> <span class="n">ham</span><span class="o">.</span><span class="n">PatchHello</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">spam</span><span class="o">.</span><span class="n">hello</span><span class="p">())</span> <span class="c1"># =&gt; &#39;HamHamHamHam!&#39;</span>
+<span class="n">spam</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span> <span class="c1"># =&gt; &#39;Hello! Spam&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="monkey-patch-gevent">
+<h2>Monkey Patch - gevent<a class="headerlink" href="#monkey-patch-gevent" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>gevent ... <a class="reference external" href="http://www.gevent.org/">http://www.gevent.org/</a></li>
+<li>非同期プログラミングをサポートする並行ライブラリ</li>
+<li>gevent の提供する処理を、Pythonの標準ライブラリにパッチをあてて利用することが可能</li>
+<li><a class="reference external" href="http://methane.github.io/gevent-tutorial-ja/#_4">Python プログラマーのための gevent チュートリアル</a></li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="kn">from</span> <span class="nn">gevent</span> <span class="kn">import</span> <span class="n">monkey</span>
+<span class="n">monkey</span><span class="o">.</span><span class="n">patch_all</span><span class="p">()</span>
+
+<span class="c1"># いろんな標準パッケージ/モジュールにパッチが当たる</span>
+<span class="c1"># patch_os</span>
+<span class="c1"># patch_time</span>
+<span class="c1"># patch_thread</span>
+<span class="c1"># patch_sys</span>
+<span class="c1"># patch_socket</span>
+<span class="c1"># patch_select</span>
+<span class="c1"># patch_ssl</span>
+<span class="c1"># patch_subprocess</span>
+<span class="c1"># patch_signal</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id23">
+<h2>Monkey Patch - gevent<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span>  <span class="n">pathc_module</span><span class="p">(</span><span class="s1">&#39;os&#39;</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">patch_module</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+      <span class="c1"># 1. 「gevent.os」 をimport ---</span>
+      <span class="n">gevent_module</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">__import__</span><span class="p">(</span><span class="s1">&#39;gevent.&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">),</span> <span class="n">name</span><span class="p">)</span>
+      <span class="n">module_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">gevent_module</span><span class="p">,</span> <span class="s1">&#39;__target__&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+      <span class="c1"># 2. 標準の「os」をimport ---</span>
+      <span class="n">module</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">items</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+          <span class="c1"># 3. 「gevent.os.__implements__」 パッチ対象を取得(gevent.os.fork) ---</span>
+          <span class="n">items</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">gevent_module</span><span class="p">,</span> <span class="s1">&#39;__implements__&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">items</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+              <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%r</span><span class="s1"> does not have __implements__&#39;</span> <span class="o">%</span> <span class="n">gevent_module</span><span class="p">)</span>
+      <span class="k">for</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+          <span class="c1"># 4. 「gevent.os.fork」 -&gt; 「os.fork」 にセット</span>
+          <span class="n">patch_item</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">gevent_module</span><span class="p">,</span> <span class="n">attr</span><span class="p">))</span>
+          <span class="c1"># path_itemではオリジナルが保存されてるので後で戻すこと可能</span>
+      <span class="k">return</span> <span class="n">module</span>
+
+  <span class="c1"># refs https://github.com/gevent/gevent/blob/master/src/gevent/monkey.py#L151</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="metaclass">
+<h2>Metaclass<a class="headerlink" href="#metaclass" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>Metaclass</strong> = クラスを生成する雛形となるクラス</li>
+<li>デフォルトは <code class="docutils literal"><span class="pre">type</span></code> が <code class="docutils literal"><span class="pre">metaclass</span></code> として設定されてます</li>
+<li><strong>Metaclass</strong> を <code class="docutils literal"><span class="pre">type</span></code> 以外のクラスに差し替え可能</li>
+<li>つまり <strong>クラス定義そのものをカスタマイズ可能</strong> という事です</li>
+<li>代表的な例として抽象基底クラスを作る <code class="docutils literal"><span class="pre">abc.ABCMeta</span></code> などがあります。</li>
+<li><a class="reference external" href="http://docs.python.jp/3.5/library/abc.html">http://docs.python.jp/3.5/library/abc.html</a></li>
+</ul>
+</div>
+<div class="section" id="id24">
+<h2>Metaclass<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>クラス定義すると、自動的に <code class="docutils literal"><span class="pre">hello</span></code> メソッド を追加する <strong>Metaclass</strong> を作成</li>
+<li><strong>Metaclass</strong> を差し替える時はクラス宣言時に <code class="docutils literal"><span class="pre">metalcass</span></code> を指定するだけです。</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># python --</span>
+ <span class="k">class</span> <span class="nc">HelloMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+
+     <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
+
+         <span class="k">def</span> <span class="nf">_hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+             <span class="k">return</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;My name is {}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+         <span class="c1"># 名前空間(クラス辞書) にhelloメソッドをセット</span>
+         <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_hello</span>
+         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
+
+ <span class="k">class</span> <span class="nc">Spam</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">HelloMeta</span><span class="p">):</span> <span class="c1"># &lt;= metaclasss を指定</span>
+     <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Spam&#39;</span>
+
+ <span class="n">spam</span> <span class="o">=</span> <span class="n">Spam</span><span class="p">()</span>
+ <span class="n">spam</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span> <span class="c1"># =&gt; &quot;My name is Spam&quot;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id25">
+<h2>Metaclass<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>名前空間だけを変更したいのであれば <code class="docutils literal"><span class="pre">__prepare__</span></code> が使えます</li>
+<li>例えば名前空間を <code class="docutils literal"><span class="pre">dict</span></code> から <code class="docutils literal"><span class="pre">OrderedDict</span></code> に変えるなど。</li>
+<li><a class="reference external" href="http://docs.python.jp/3.5/reference/datamodel.html#preparing-the-class-namespace">http://docs.python.jp/3.5/reference/datamodel.html#preparing-the-class-namespace</a></li>
+</ul>
+</div>
+<div class="section" id="metaclass-flask-methodview">
+<h2>Metaclass - Flask MethodView<a class="headerlink" href="#metaclass-flask-methodview" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Flask(<a class="reference external" href="http://flask.pocoo.org/">http://flask.pocoo.org/</a>) -&gt; Webフレームワーク</li>
+<li>HTTPリクエストと受け付ける <code class="docutils literal"><span class="pre">View</span></code> というクラスがある</li>
+<li>クラス変数 <code class="docutils literal"><span class="pre">View.methods</span></code> = アクセスを許可するHTTPメソッドのリストが指定可能</li>
+<li><code class="docutils literal"><span class="pre">MethodView</span></code> は 実装されたメソッド名から自動的に <code class="docutils literal"><span class="pre">methods</span></code> という属性を設定してくれる</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="kn">from</span> <span class="nn">flask.views</span> <span class="kn">import</span> <span class="n">MethodView</span>
+
+<span class="k">class</span> <span class="nc">GetAndPostMethodView</span><span class="p">(</span><span class="n">MethodView</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># GETアクセスが可能になる</span>
+
+    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># POSTアクセスが可能になる</span>
+
+<span class="c1"># 定義したメソッド名が「methods」として自動で登録される</span>
+<span class="n">GetAndPostMethodView</span><span class="o">.</span><span class="n">methods</span> <span class="c1"># =&gt; [&#39;GET&#39;, &#39;POST&#39;]</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id26">
+<h2>Metaclass - Flask MethodView<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>名前空間(クラス辞書)から定義されたメソッド名を取得</li>
+<li>クラス変数 <code class="docutils literal"><span class="pre">methods</span></code> に自動的にセット</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="k">class</span> <span class="nc">MethodViewType</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="c1"># d には post , get などのメソッドがセットされている</span>
+        <span class="n">rv</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">&#39;methods&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="n">methods</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">rv</span><span class="o">.</span><span class="n">methods</span> <span class="ow">or</span> <span class="p">[])</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+                <span class="c1"># メソッド が HTTPメソッド と同名であれば 自動で登録</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">http_method_funcs</span><span class="p">:</span>
+                    <span class="n">methods</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">key</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">methods</span><span class="p">:</span>
+                <span class="n">rv</span><span class="o">.</span><span class="n">methods</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">methods</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">rv</span>
+
+<span class="k">class</span> <span class="nc">MethodView</span><span class="p">(</span><span class="n">with_metaclass</span><span class="p">(</span><span class="n">MethodViewType</span><span class="p">,</span> <span class="n">View</span><span class="p">)):</span>
+      <span class="o">...</span>
+
+<span class="c1"># refs https://github.com/pallets/flask/blob/master/flask/views.py#L105</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="decorator">
+<h2>Decorator<a class="headerlink" href="#decorator" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>関数をラップする関数を生成する ≒ コードを記述するコード</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">()</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">func</span><span class="p">()</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello! My name is {}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">inner</span>
+
+<span class="nd">@hello</span>
+<span class="k">def</span> <span class="nf">spam</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;spam&#39;</span>
+
+<span class="n">spam</span><span class="p">()</span> <span class="c1"># =&gt; &#39;Hello! My name is spam&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="decorator-functools-total-ordering">
+<h2>Decorator - functools.total_ordering<a class="headerlink" href="#decorator-functools-total-ordering" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>メタっぽいデコレーターの例</li>
+<li>一部の比較メソッドするだけで、全ての順序比較が可能なクラスを作ってくれる</li>
+<li><code class="docutils literal"><span class="pre">__eq__</span></code> を実装が必要</li>
+<li><code class="docutils literal"><span class="pre">__lt__,</span> <span class="pre">__le__,</span> <span class="pre">__gt__,</span> <span class="pre">__ge__</span></code> の <strong>どれか一つ</strong> の実装が必要</li>
+<li>それ以外の比較のメソッドを自動的に実装してくれる</li>
+<li><a class="reference external" href="http://docs.python.jp/3/library/functools.html#functools.total_ordering">http://docs.python.jp/3/library/functools.html#functools.total_ordering</a></li>
+</ul>
+</div>
+<div class="section" id="id27">
+<h2>Decorator - functools.total_ordering<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">functools</span>
+
+<span class="nd">@functools.total_ordering</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">score</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="n">score</span>
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">score</span>
+    <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">score</span>
+
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">==</span> <span class="n">Person</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># __eq__ 実装</span>
+<span class="k">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">&lt;</span> <span class="n">Person</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>   <span class="c1"># __lt__ 実装</span>
+<span class="c1"># 残りのメソッド群を自動実装 ---</span>
+<span class="k">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">&gt;</span> <span class="n">Person</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>   <span class="c1"># __gt__ 自動実装</span>
+<span class="k">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">&lt;=</span> <span class="n">Person</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># __le__ 自動実装</span>
+<span class="k">print</span><span class="p">(</span><span class="n">p1</span> <span class="o">&gt;=</span> <span class="n">Person</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># __ge__ 自動実装</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id28">
+<h2>Decorator - functools.total_ordering<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 実装された __lt__ を使って __gt__ の比較を実現するメソッド</span>
+<span class="k">def</span> <span class="nf">_gt_from_lt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">NotImplemented</span><span class="o">=</span><span class="bp">NotImplemented</span><span class="p">):</span>
+    <span class="n">op_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__lt__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">op_result</span> <span class="ow">is</span> <span class="bp">NotImplemented</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">op_result</span>
+    <span class="k">return</span> <span class="ow">not</span> <span class="n">op_result</span> <span class="ow">and</span> <span class="bp">self</span> <span class="o">!=</span> <span class="n">other</span>
+
+<span class="k">def</span> <span class="nf">total_ordering</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="p">[</span><span class="n">op</span> <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">_convert</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="bp">None</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">roots</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;must define at least one ordering operation: &lt; &gt; &lt;= &gt;=&#39;</span><span class="p">)</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
+
+    <span class="c1"># [(&#39;__gt__&#39;, _gt_from_lt), (&#39;__le__&#39;, _le_from_lt), (&#39;__ge__&#39;, _ge_from_lt)]</span>
+    <span class="k">for</span> <span class="n">opname</span><span class="p">,</span> <span class="n">opfunc</span> <span class="ow">in</span> <span class="n">_convert</span><span class="p">[</span><span class="n">root</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">opname</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">roots</span><span class="p">:</span>
+            <span class="n">opfunc</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="n">opname</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">opname</span><span class="p">,</span> <span class="n">opfunc</span><span class="p">)</span> <span class="c1"># クラスにメソッドを動的に定義</span>
+    <span class="k">return</span> <span class="n">cls</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="descriptor">
+<h2>Descriptor<a class="headerlink" href="#descriptor" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>オブジェクトの属性アクセスをカスタマイズするための仕組み</li>
+<li>データディスクリプタ ... <code class="docutils literal"><span class="pre">__get__</span></code> , <code class="docutils literal"><span class="pre">__set__</span></code> の両方実装が必要</li>
+<li>非データディスクリプタ ... <code class="docutils literal"><span class="pre">__get__</span></code>  のみ実装が必要</li>
+<li>実装すべきメソッド群のことを <strong>プロトコル</strong> といいます</li>
+<li><a class="reference external" href="http://docs.python.jp/3.5/howto/descriptor.html">http://docs.python.jp/3.5/howto/descriptor.html</a></li>
+<li><a class="reference external" href="http://qiita.com/knzm/items/a8a0fead6e1706663c22">Python を支える技術 ディスクリプタ編</a></li>
+</ul>
+</div>
+<div class="section" id="id30">
+<h2>Descriptor<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>セットした値を二乗して返すディスクリプタ</li>
+<li><code class="docutils literal"><span class="pre">&#64;property</span></code> デコレーターも中でデータディスクリプタを作ってる</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="k">class</span> <span class="nc">PowDescritor</span><span class="p">:</span>
+     <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+         <span class="c1"># # obj(= instance)が渡ってこない時はクラス属性として呼ばれている</span>
+         <span class="k">if</span> <span class="ow">not</span> <span class="n">obj</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+         <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;_score&#39;</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+     <span class="k">def</span> <span class="nf">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+         <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;_score&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+     <span class="k">def</span> <span class="nf">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+         <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;_score&#39;</span><span class="p">):</span>
+             <span class="k">del</span> <span class="n">obj</span><span class="o">.</span><span class="n">_value</span>
+
+ <span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
+     <span class="n">score</span> <span class="o">=</span> <span class="n">PowDescritor</span><span class="p">()</span>
+
+ <span class="n">spam</span> <span class="o">=</span> <span class="n">Spam</span><span class="p">()</span>
+ <span class="n">spam</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">2</span>
+ <span class="k">print</span><span class="p">(</span><span class="n">spam</span><span class="o">.</span><span class="n">score</span><span class="p">)</span> <span class="c1"># =&gt; 4</span>
+ <span class="n">spam</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">3</span>
+ <span class="k">print</span><span class="p">(</span><span class="n">spam</span><span class="o">.</span><span class="n">score</span><span class="p">)</span> <span class="c1"># =&gt; 9</span>
+ <span class="k">del</span> <span class="n">spam</span><span class="o">.</span><span class="n">score</span>
+ <span class="k">print</span><span class="p">(</span><span class="n">spam</span><span class="o">.</span><span class="n">score</span><span class="p">)</span> <span class="c1"># =&gt; AttributeError</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id31">
+<h2>Descriptor<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>ディスクリプタの例を見る前に。</li>
+<li>Pythonオブジェクトの属性へのアクセスには優先順位があります</li>
+<li>オブジェクトの属性アクセスをすると**必ず** <code class="docutils literal"><span class="pre">__getattribute__</span></code> が呼ばれます</li>
+<li><code class="docutils literal"><span class="pre">__getattribute__</span></code> は下記の順番でデータを取得しようとします。</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">データディスクリプタからデータを取得</span>
+<span class="mf">2.</span> <span class="n">属性辞書からデータを取得</span>
+<span class="mf">3.</span> <span class="n">非データディスクリプタからデータを取得</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="descriptor-reify">
+<h2>Descriptor - reify<a class="headerlink" href="#descriptor-reify" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Pyramid(<a class="reference external" href="https://github.com/Pylons/pyramid/">https://github.com/Pylons/pyramid/</a>) の メソッドデコレータ</li>
+<li>属性アクセスの優先順位を生かしたDescriptorの実装をしています。</li>
+<li>1度アクセスしたメソッドの実行結果をキャッシュ</li>
+<li>2回目の以降はメソッドの実行を省略できる</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">pyramid.decorator</span> <span class="kn">import</span> <span class="n">reify</span>
+
+<span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
+
+    <span class="nd">@reify</span>
+    <span class="k">def</span> <span class="nf">now</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+<span class="n">spam</span> <span class="o">=</span> <span class="n">Spam</span><span class="p">()</span>
+<span class="n">spam</span><span class="o">.</span><span class="n">now</span> <span class="c1"># nowメソッド実行</span>
+<span class="n">spam</span><span class="o">.</span><span class="n">now</span> <span class="c1"># nowメソッドの実行はスキップ、キャッシュされた結果が手にはいる</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id32">
+<h2>Descriptor - reify<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">reify</span></code> は <strong>非データディスクリプタ</strong> = つまり属性アクセスの優先順位が一番低い</li>
+<li>ラップしたメソッドの実行結果を <strong>属性辞書</strong> に ダイレクトにセット</li>
+<li><strong>属性辞書</strong> の方が優先順位が高いので、以降メソッドは呼ばれない</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">reify</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="o">...</span>
+
+    <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">objtype</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">inst</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapped</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span>
+        <span class="c1"># メソッドの実行結果をダイレクトに属性辞書にセット</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">inst</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapped</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">val</span>
+
+<span class="c1"># refs https://github.com/Pylons/pyramid/blob/master/pyramid/decorator.py#L39</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="operator-overload">
+<h2>Operator Overload<a class="headerlink" href="#operator-overload" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>演算子の挙動をカスタマイズできる</li>
+<li>比較演算子(<code class="docutils literal"><span class="pre">==</span></code>, <code class="docutils literal"><span class="pre">&gt;</span></code>, <code class="docutils literal"><span class="pre">&gt;=</span></code>, <code class="docutils literal"><span class="pre">&lt;</span></code>, <code class="docutils literal"><span class="pre">&lt;=</span></code>), 算術演算子(<code class="docutils literal"><span class="pre">+</span></code>, <code class="docutils literal"><span class="pre">-</span></code>, <code class="docutils literal"><span class="pre">/</span></code>, <code class="docutils literal"><span class="pre">＊</span></code>, <code class="docutils literal"><span class="pre">%</span></code>, <code class="docutils literal"><span class="pre">//</span></code>, <code class="docutils literal"><span class="pre">**</span></code>),</li>
+<li>方法はオブジェクトに演算子に対応する <strong>Special Method</strong> を実装する</li>
+<li><a class="reference external" href="http://docs.python.jp/3.5/reference/datamodel.html#special-method-names">http://docs.python.jp/3.5/reference/datamodel.html#special-method-names</a></li>
+</ul>
+</div>
+<div class="section" id="id33">
+<h2>Operator Overload<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>オブジェクト同士を「 <code class="docutils literal"><span class="pre">+</span></code> 」演算子で加算できるようにする</li>
+<li>左に右を加算</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">Spam</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Spam</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># プロパティvalue同士を加算</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">value</span><span class="p">)</span> <span class="c1"># =&gt; 2</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id34">
+<h2>Operator Overload<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>数値リテラルも <code class="docutils literal"><span class="pre">Spam.value</span></code> に加算できるようにしたい</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="c1"># value の有無で加算対象を変える other.value or other</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+<span class="p">(</span><span class="n">Spam</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">Spam</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">value</span> <span class="c1"># =&gt; 2</span>
+<span class="p">(</span><span class="n">Spam</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>       <span class="c1"># =&gt; 2</span>
+
+<span class="mi">1</span> <span class="o">+</span> <span class="n">Spam</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># TypeError: unsupported operand type(s) for +: &#39;int&#39; and &#39;Spam&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id35">
+<h2>Operator Overload<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">int</span></code> の <code class="docutils literal"><span class="pre">__add__</span></code> が実行されるのでエラー</li>
+<li><code class="docutils literal"><span class="pre">__radd__</span></code> メソッドを定義すると、右を左に渡すように向きが変わる</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span>
+   <span class="k">def</span> <span class="nf">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+       <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+<span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">Spam</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">value</span> <span class="c1"># =&gt; 2</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="operator-overload-sqlalchemy">
+<h2>Operator Overload - SQLAlchemy<a class="headerlink" href="#operator-overload-sqlalchemy" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">Column</span><span class="p">,</span> <span class="n">Integer</span>
+
+<span class="n">Base</span> <span class="o">=</span> <span class="n">declarative_base</span><span class="p">()</span>
+<span class="n">Base</span><span class="o">.</span><span class="n">query</span> <span class="o">=</span> <span class="n">db_session</span><span class="o">.</span><span class="n">query_property</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">Base</span><span class="p">):</span>
+    <span class="n">__tablename__</span> <span class="o">=</span> <span class="s1">&#39;users&#39;</span>
+    <span class="nb">id</span> <span class="o">=</span> <span class="n">Column</span><span class="p">(</span><span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># User.id == 1 の結果が boolじゃない</span>
+<span class="c1"># SELECT users.id AS users_id FROM users WHERE users.id = :id_1</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; users.id = :id_1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># =&gt; users.id &gt; :id_1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; users.id &gt;= :id_1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># =&gt; users.id &lt; :id_1</span>
+<span class="k">print</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># =&gt; users.id &lt;= :id_1</span>
+<span class="k">print</span><span class="p">(</span><span class="o">-</span><span class="n">User</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="c1"># =&gt; -users.id</span>
+<span class="k">print</span><span class="p">(</span><span class="o">~</span><span class="n">User</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="c1"># =&gt; NOT users.id</span>
+<span class="k">print</span><span class="p">((</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># =&gt; users.id = :id_1 OR users.id = :id_2</span>
+<span class="k">print</span><span class="p">((</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))</span> <span class="c1"># =&gt; users.id = :id_1 AND users.id = :id_2</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id36">
+<h2>Operator Overload - SQLAlchemy<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">Column</span></code> クラスに演算子をOverloadする実装がされています。</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ColumnOperators</span><span class="p">(</span><span class="n">Operators</span><span class="p">):</span>
+
+  <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+      <span class="sd">&quot;&quot;&quot;Implement the ``==`` operator.</span>
+
+<span class="sd">      In a column context, produces the clause ``a = b``.</span>
+<span class="sd">      If the target is ``None``, produces ``a IS NULL``.</span>
+
+<span class="sd">      &quot;&quot;&quot;</span>
+      <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">operate</span><span class="p">(</span><span class="n">eq</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+
+<span class="c1"># refs: https://github.com/zzzeek/sqlalchemy/blob/master/lib/sqlalchemy/sql/operators.py#L235</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="eval-exec">
+<h2>eval/exec<a class="headerlink" href="#eval-exec" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>文字列をPythonコードとして評価/実行</li>
+<li><code class="docutils literal"><span class="pre">eval</span></code> は単一の式を評価, <code class="docutils literal"><span class="pre">exec</span></code> は複数の文を評価</li>
+<li><a class="reference external" href="http://docs.python.jp/3.5/library/functions.html#eval">http://docs.python.jp/3.5/library/functions.html#eval</a></li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># eval ---</span>
+<span class="n">spam</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ham</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">egg</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;spam + ham&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">egg</span><span class="p">)</span> <span class="c1"># =&gt; 3</span>
+
+<span class="c1"># exec ---</span>
+<span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">spam = 1</span>
+<span class="s2">ham = 2</span>
+<span class="s2">egg = spam + ham</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="k">exec</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">egg</span><span class="p">)</span> <span class="c1"># =&gt; 3</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="eval-exec-namedtuple">
+<h2>eval/exec - namedtuple<a class="headerlink" href="#eval-exec-namedtuple" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>名前付きの <strong>tuple</strong></li>
+<li><strong>tuple</strong> を継承したクラスが動的に生成</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
+
+<span class="n">Person</span> <span class="o">=</span> <span class="n">namedtuple</span><span class="p">(</span><span class="s1">&#39;Person&#39;</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">))</span>
+<span class="n">p1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">first</span><span class="o">=</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="n">last</span><span class="o">=</span><span class="s1">&#39;ham&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">first</span><span class="p">)</span> <span class="c1"># =&gt; spam</span>
+<span class="k">print</span><span class="p">(</span><span class="n">p1</span><span class="o">.</span><span class="n">last</span><span class="p">)</span>  <span class="c1"># =&gt; ham</span>
+
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">Person</span><span class="p">))</span> <span class="c1"># =&gt; &lt;class &#39;type&#39;&gt;</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">p1</span><span class="p">))</span>     <span class="c1"># =&gt; &lt;class &#39;__main__.Person&#39;&gt;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id37">
+<h2>eval/exec - namedtuple<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># collections/__init__.py --</span>
+<span class="c1"># (注) 大分端折ってます</span>
+<span class="n">_class_template</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span><span class="se">\</span>
+<span class="s2">from builtins import property as _property, tuple as _tuple</span>
+<span class="s2">from operator import itemgetter as _itemgetter</span>
+<span class="s2">from collections import OrderedDict</span>
+
+<span class="s2">class {typename}(tuple):</span>
+<span class="s2">    &#39;{typename}({arg_list})&#39;</span>
+
+<span class="s2">    __slots__ = ()</span>
+
+<span class="s2">    _fields = {field_names!r}</span>
+
+<span class="s2">    def __new__(_cls, {arg_list}):</span>
+<span class="s2">        &#39;Create new instance of {typename}({arg_list})&#39;</span>
+<span class="s2">        return _tuple.__new__(_cls, ({arg_list}))</span>
+<span class="s2"> &quot;&quot;&quot;</span>
+
+ <span class="n">namespace</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">__name__</span><span class="o">=</span><span class="s1">&#39;namedtuple_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">typename</span><span class="p">)</span>
+ <span class="k">exec</span><span class="p">(</span><span class="n">class_definition</span><span class="p">,</span> <span class="n">namespace</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="dynamic-module">
+<h2>Dynamic Module<a class="headerlink" href="#dynamic-module" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>動的にモジュールを生成する</li>
+<li><code class="docutils literal"><span class="pre">types</span></code> に <strong>モジュール</strong> ための型( <code class="docutils literal"><span class="pre">types.ModuleType</span></code> )が存在する</li>
+<li>その型を使って動的に生成することが可能</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">spam_module</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">ModuleType</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;dynamic generated module&#39;</span><span class="p">)</span>
+<span class="n">spam_class</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">class Spam:</span>
+<span class="s2">    def hello(self):</span>
+<span class="s2">        print(&#39;Hello&#39;)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="k">exec</span><span class="p">(</span><span class="n">spam_class</span><span class="p">,</span> <span class="n">spam_module</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)</span> <span class="c1"># spamモジュールの名前空間に所属させる</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s1">&#39;spam&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spam_module</span>
+
+<span class="kn">import</span> <span class="nn">spam</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">spam</span><span class="o">.</span><span class="n">Spam</span><span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span> <span class="c1"># =&gt; &#39;Hello&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="dsl">
+<h2>DSL<a class="headerlink" href="#dsl" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Domain specific language</li>
+<li>特定の作業の遂行や問題の解決に特化して設計された言語</li>
+<li>言語機能を利用したDSL -&gt; 内部DSL</li>
+<li><a class="reference external" href="http://www.slideshare.net/kwatch/fantastic-dsl-in-python">Fantastic DSL in Python</a><ul>
+<li><code class="docutils literal"><span class="pre">with</span></code>/<code class="docutils literal"><span class="pre">for</span></code>/<code class="docutils literal"><span class="pre">decorator</span></code> を駆使してDSLを実現するテクニックが説明されています</li>
+</ul>
+</li>
+<li><a class="reference external" href="http://atsuoishimoto.hatenablog.com/entry/20120821/1345537686">PythonはDSLが苦手？</a><ul>
+<li>後述する <code class="docutils literal"><span class="pre">ast</span></code> モジュールを使ってDSLを実現</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="dsl-ploblem-of-with-statetment">
+<h2>DSL - ploblem of &#8216;with statetment&#8217;<a class="headerlink" href="#dsl-ploblem-of-with-statetment" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>ブロックが必ず実行されてしまう -&gt; スキップ可能にしたい</li>
+<li>スコープが共有されてしまう -&gt; スコープを独立させたい</li>
+<li>スキップ可能 <code class="docutils literal"><span class="pre">with</span></code> に関しては過去にPEPで提案済み。だが却下。</li>
+<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0377/">PEP 377 &#8211; Allow __enter__() methods to skip the statement body</a></li>
+<li>アイディアはあるが、ここでは割愛。興味がある人はgistを参照してください。</li>
+<li><a class="reference external" href="https://gist.github.com/tell-k/c7552ef551f06620e2f029f1495fe173">https://gist.github.com/tell-k/c7552ef551f06620e2f029f1495fe173</a></li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="n">spam</span> <span class="o">=</span> <span class="s1">&#39;spam&#39;</span>
+
+<span class="k">with</span> <span class="n">ham</span><span class="p">(</span><span class="s1">&#39;ham1&#39;</span><span class="p">):</span>
+    <span class="n">spam</span> <span class="o">=</span> <span class="s1">&#39;ham&#39;</span>  <span class="c1"># 必ず実行 ブロックの中身はスキップ不可</span>
+
+<span class="k">with</span> <span class="n">ham</span><span class="p">(</span><span class="s1">&#39;ham2&#39;</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">spam</span><span class="p">)</span>  <span class="c1"># =&gt; &#39;ham&#39; すぐ上のwithが影響してる</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="open-class">
+<h2>Open Class<a class="headerlink" href="#open-class" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Ruby は <strong>Open Class</strong> という機能で <strong>クラスの再定義</strong> が可能です。</li>
+<li>Python は クラスをオープンすることはできません</li>
+<li>ただ、ここまで見たきたように、動的にクラスに属性を追加することはできます。</li>
+<li>しかし <strong>組み込みの型</strong> に属性を付加することはできません。</li>
+</ul>
+<div class="highlight-ruby"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># ruby --</span>
+<span class="k">class</span> <span class="nc">String</span>
+  <span class="k">def</span> <span class="nf">hello</span>
+    <span class="s1">&#39;Hello! String is &#39;</span> <span class="o">+</span> <span class="nb">self</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="nb">p</span> <span class="s1">&#39;Spam&#39;</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span> <span class="c1"># =&gt; &quot;Hello! String is Spam&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello! String is&#39;</span> <span class="o">+</span> <span class="bp">self</span>
+
+<span class="nb">str</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="n">hello</span> <span class="c1"># =&gt; TypeError: can&#39;t set attributes of built-in/extension type &#39;str&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id38">
+<h2>Open Class<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>組み込み型もクラスなので継承は可能</li>
+<li>クラスを継承して、独自の属性を追加することはできます。</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyStr</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello! String is &#39;</span> <span class="o">+</span> <span class="bp">self</span>
+
+<span class="n">spam</span> <span class="o">=</span> <span class="n">MyStr</span><span class="p">(</span><span class="s1">&#39;Spam&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">spam</span><span class="o">.</span><span class="n">hello</span><span class="p">())</span> <span class="c1"># =&gt; &quot;Hello! String is Spam&quot;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id39">
+<h2>Open Class どうしてもやりたい!!!<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h2>
+<img alt="https://pbs.twimg.com/media/Crr78N1VIAAh0K5.jpg" src="https://pbs.twimg.com/media/Crr78N1VIAAh0K5.jpg" />
+<ul class="simple">
+<li>どうしても組み込み型そのものにパッチを当てたいという方には。。。</li>
+</ul>
+</div>
+<div class="section" id="open-class-forbiddenfruit">
+<h2>Open Class - forbiddenfruit<a class="headerlink" href="#open-class-forbiddenfruit" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/clarete/forbiddenfruit">https://github.com/clarete/forbiddenfruit</a> ... <strong>禁断の果実</strong></li>
+<li><strong>名前からしてヤバイ</strong></li>
+<li><code class="docutils literal"><span class="pre">ctypes</span></code> モジュールを使って、組み込み型にもパッチを当てることが可能</li>
+<li><code class="docutils literal"><span class="pre">ctypes</span></code> モジュールにある Python C API の機能を利用して実現</li>
+<li>ですが <strong>メタプログラミングの範疇</strong> を逸脱してる気がします。。。</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">forbiddenfruit</span> <span class="kn">import</span> <span class="n">curse</span>
+
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;Hello! String is &#39;</span> <span class="o">+</span> <span class="bp">self</span>
+
+<span class="n">curse</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Spam&#39;</span><span class="o">.</span><span class="n">hello</span><span class="p">())</span> <span class="c1"># =&gt; &quot;Hello! String is Spam&quot;</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="ast">
+<h2>ast<a class="headerlink" href="#ast" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>抽象構文木(Abstract Syntax Tree)</strong> を扱う標準ライブラリ</li>
+<li>Pythonのソースコードを <strong>抽象構文木</strong> にして変換して、ソースコードを操作することが可能</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ast</span>
+
+<span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">class Spam:</span>
+
+<span class="s2">    def __init__(self, name):</span>
+<span class="s2">        self.name = name</span>
+
+<span class="s2">    def hello(self):</span>
+<span class="s2">        print(&#39;Hello {}&#39;.format(self.name))</span>
+<span class="s2">&quot;&quot;&quot;</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<span class="n">ast</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id40">
+<h2>ast<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">Module</span><span class="p">(</span>
+ <span class="n">body</span><span class="o">=</span><span class="p">[</span>
+  <span class="n">ClassDef</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="n">bases</span><span class="o">=</span><span class="p">[],</span> <span class="n">keywords</span><span class="o">=</span><span class="p">[],</span> <span class="n">body</span><span class="o">=</span><span class="p">[</span>
+   <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;__init__&#39;</span><span class="p">,</span>
+    <span class="n">args</span><span class="o">=</span><span class="n">arguments</span><span class="p">(</span> <span class="n">args</span> <span class="o">=</span> <span class="p">[</span> <span class="n">arg</span><span class="p">(</span><span class="n">arg</span><span class="o">=</span><span class="s1">&#39;self&#39;</span><span class="p">,</span> <span class="n">annotation</span><span class="o">=</span><span class="bp">None</span><span class="p">),</span> <span class="n">arg</span><span class="p">(</span><span class="n">arg</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">annotation</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span> <span class="p">],</span> <span class="n">vararg</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+      <span class="n">kwonlyargs</span><span class="o">=</span><span class="p">[],</span> <span class="n">kw_defaults</span><span class="o">=</span><span class="p">[],</span> <span class="n">kwarg</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="p">[]</span>
+    <span class="p">),</span>
+    <span class="n">body</span><span class="o">=</span><span class="p">[</span><span class="n">Assign</span><span class="p">(</span><span class="n">targets</span><span class="o">=</span><span class="p">[</span><span class="n">Attribute</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">Name</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;self&#39;</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">Load</span><span class="p">()),</span> <span class="n">attr</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">Store</span><span class="p">()</span> <span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="n">Name</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">Load</span><span class="p">()))</span>
+    <span class="p">],</span>
+    <span class="n">decorator_list</span><span class="o">=</span><span class="p">[],</span>
+    <span class="n">returns</span><span class="o">=</span><span class="bp">None</span>
+   <span class="p">),</span>
+   <span class="n">FunctionDef</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+    <span class="c1"># ~ 省略 ~</span>
+   <span class="p">],</span>
+   <span class="n">decorator_list</span><span class="o">=</span><span class="p">[]</span>
+  <span class="p">)</span>
+ <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id41">
+<h2>ast<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>抽象構文木(Abstract Syntax Tree)</strong> を書き換えたい</li>
+<li><code class="docutils literal"><span class="pre">ast.NodeTransformer</span></code> を利用してコードを書き換える事ができる</li>
+<li><a class="reference external" href="http://qiita.com/t2y/items/c8877cf5d3d22cdcf2a8">Python の ast モジュール入門 (NodeVisitor を使う)</a></li>
+<li><a class="reference external" href="https://greentreesnakes.readthedocs.io/en/latest/index.html">Green Tree Snakes - the missing Python AST docs</a></li>
+</ul>
+</div>
+<div class="section" id="ast-nodetransformer">
+<h2>ast - NodeTransformer<a class="headerlink" href="#ast-nodetransformer" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">print</span></code> を <code class="docutils literal"><span class="pre">pprint</span></code> に変えたい</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">data = [</span>
+<span class="s2">  { &#39;name&#39;: &#39;Spam&#39;, &#39;value&#39;: 1, },</span>
+<span class="s2">  { &#39;name&#39;: &#39;Ham&#39;, &#39;value&#39;: 2, },</span>
+<span class="s2">  { &#39;name&#39;: &#39;Egg&#39;, &#39;value&#39;: 3, }</span>
+<span class="s2">]</span>
+
+<span class="s2">print(data)</span>
+<span class="s2">&quot;&quot;&quot;</span>
+<span class="c1"># printすると一行見づらい</span>
+<span class="c1"># [{&#39;name&#39;: &#39;Spam&#39;, &#39;value&#39;: 1}, {&#39;name&#39;: &#39;Ham&#39;, &#39;value&#39;: 2}, {&#39;name&#39;: &#39;Egg&#39;, &#39;value&#39;: 3}]</span>
+<span class="c1"># print(data) =&gt; pprint(data) に変えたい</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id42">
+<h2>ast - NodeTransformer<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<span class="kn">import</span> <span class="nn">ast</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="k">class</span> <span class="nc">PPrintTransformer</span><span class="p">(</span><span class="n">ast</span><span class="o">.</span><span class="n">NodeTransformer</span><span class="p">):</span>
+
+   <span class="k">def</span> <span class="nf">visit_Name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">node</span><span class="p">):</span>
+      <span class="k">if</span> <span class="n">node</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s1">&#39;print&#39;</span><span class="p">:</span>
+          <span class="n">name</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">Name</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;pprint&#39;</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="n">ast</span><span class="o">.</span><span class="n">Load</span><span class="p">())</span>
+          <span class="k">return</span> <span class="n">ast</span><span class="o">.</span><span class="n">copy_location</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">node</span><span class="p">)</span>
+      <span class="k">return</span> <span class="n">node</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<span class="n">code</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">PPrintTransformer</span><span class="p">()</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">tree</span><span class="p">),</span> <span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;exec&#39;</span><span class="p">)</span>
+<span class="k">exec</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+<span class="c1"># =&gt; print が pprintに変わった結果が表示される</span>
+<span class="c1"># [{&#39;name&#39;: &#39;Spam&#39;, &#39;value&#39;: 1},</span>
+<span class="c1"># {&#39;name&#39;: &#39;Ham&#39;, &#39;value&#39;: 2},</span>
+<span class="c1"># {&#39;name&#39;: &#39;Egg&#39;, &#39;value&#39;: 3}]</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="import-hook">
+<h2>Import Hook<a class="headerlink" href="#import-hook" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>インポート時に処理をフックさせてカスタマイズができる</li>
+<li>特定のモジュールを読み込んだら、自動的にコードを生成/変更に利用できる</li>
+<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0302/">PEP 302 &#8211; New Import Hooks</a></li>
+</ul>
+</div>
+<div class="section" id="id43">
+<h2>Import Hook<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>先ほどの <strong>ast</strong> の例と組み合わせる</li>
+<li>特定のモジュールを <code class="docutils literal"><span class="pre">import</span></code> したら、 <code class="docutils literal"><span class="pre">print</span></code> を <code class="docutils literal"><span class="pre">pprint</span></code> に置き換える</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># print_data.py --</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Spam&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Ham&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Egg&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="p">}</span>
+<span class="p">]</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1"># pprintに変える</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id44">
+<h2>Import Hook<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">class</span> <span class="nc">MyImportHook</span><span class="p">:</span>
+
+ <span class="k">def</span> <span class="nf">find_module</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mod_name</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+     <span class="c1"># 1. print_data というモジュールだけ return self =&gt; self.load_moduleに続く</span>
+     <span class="k">if</span> <span class="n">mod_name</span> <span class="o">==</span> <span class="s1">&#39;print_data&#39;</span><span class="p">:</span>
+         <span class="k">return</span> <span class="bp">self</span>
+
+ <span class="k">def</span> <span class="nf">load_module</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mod_name</span><span class="p">):</span>
+     <span class="n">src</span> <span class="o">=</span> <span class="n">mod_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.py&#39;</span> <span class="c1"># 2. 対象のソースファイルを読み込む</span>
+     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">src</span><span class="p">)</span> <span class="k">as</span> <span class="n">fp</span><span class="p">:</span>
+         <span class="n">src_code</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+     <span class="n">src_code</span> <span class="o">=</span>  <span class="s1">&#39;from pprint import pprint</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">src_code</span> <span class="c1"># 3. pprintをimportする一文を追加</span>
+     <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">src_code</span><span class="p">)</span>   <span class="c1"># 4. astでパースしてcompile</span>
+     <span class="n">new_code</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">PPrintTransformer</span><span class="p">()</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">tree</span><span class="p">),</span> <span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;exec&#39;</span><span class="p">)</span>
+     <span class="n">new_mod</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">ModuleType</span><span class="p">(</span><span class="n">mod_name</span><span class="p">)</span> <span class="c1"># 5. 新しく「print_data」モジュールを作る</span>
+     <span class="k">exec</span><span class="p">(</span><span class="n">new_code</span><span class="p">,</span> <span class="n">new_mod</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)</span> <span class="c1"># 6. モジュールの名前空間に、書き換えたコードを当てはめる</span>
+     <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">mod_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_mod</span>
+     <span class="k">return</span> <span class="n">new_mod</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="id45">
+<h2>Import Hook<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><cite>sys.meta_path</cite> に追加することで <strong>Import Hook</strong> が有効になる</li>
+</ul>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">sys</span><span class="o">.</span><span class="n">meta_path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">MyImportHook</span><span class="p">())</span>
+<span class="kn">import</span> <span class="nn">print_data</span>
+
+<span class="c1"># pprintに書き換わった結果が表示</span>
+<span class="c1"># [{&#39;name&#39;: &#39;Spam&#39;, &#39;value&#39;: 1},</span>
+<span class="c1"># {&#39;name&#39;: &#39;Ham&#39;, &#39;value&#39;: 2},</span>
+<span class="c1"># {&#39;name&#39;: &#39;Egg&#39;, &#39;value&#39;: 3}]</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="section" id="macro">
+<h2>Macro<a class="headerlink" href="#macro" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>既定のコードを置き換えるルールやパターンを作ることで簡潔な表現やコードの再利用性をもたらす.</p>
+<p class="attribution">&mdash;<a class="reference external" href="http://t2y.hatenablog.jp/entry/2015/03/11/025123">Python とマクロ、インポートフックと抽象構文木</a></p>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/lihaoyi/macropy">https://github.com/lihaoyi/macropy</a> ... Python2 Only</li>
+<li><strong>Import Hook</strong> と <strong>ast</strong> を駆使して、機能拡張を行っている</li>
+<li>詳細は難しいので割愛</li>
+</ul>
+</div>
+<div class="section" id="id47">
+<h2>Macro<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>他に参考になりそうな実装</li>
+<li><a class="reference external" href="http://www.grantjenks.com/docs/pypatt-python-pattern-matching/">http://www.grantjenks.com/docs/pypatt-python-pattern-matching/</a></li>
+<li><a class="reference external" href="https://github.com/Suor/patterns">https://github.com/Suor/patterns</a></li>
+<li><a class="reference external" href="https://github.com/mariusae/match">https://github.com/mariusae/match</a></li>
+</ul>
+</div>
+<div class="section" id="id48">
+<h2>まとめ<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Pythonのクラス周りのおさらい</li>
+<li>様々なメタプログラミングのテクニックを広く浅く紹介しました</li>
+<li>またそれらのテクニックがライブラリやフレームワークの中身では普通に使われているという話</li>
+<li>これらは知っていれば、ライブラリの作ったり/覗いたりすることにも役に立つと思います</li>
+<li>ただし乱用は厳禁。むやみに使えばシステムが逆に複雑なったり混乱を招く原因もなります。</li>
+<li>確信をもって使えると判断した時だけ使うようにしましょう。</li>
+<li>ご利用は計画的に:)</li>
+</ul>
+</div>
+<div class="section" id="id49">
+<h2>参考<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>まとめ中(いっぱいある)</li>
+</ul>
+</div>
+<div class="section" id="spciela-thanks">
+<h2>Spciela Thanks<a class="headerlink" href="#spciela-thanks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>忙しい合間を縫ってレビューしてくれた</li>
+<li>&#64;shimizukawaさん &#64;aodagさん &#64;mahata</li>
+<li>ありがとうございます m(_ _)m</li>
+</ul>
+</div>
+<div class="section" id="id50">
+<h2>必要かどうかは悩むものは必要ない<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Pythonのコアコミッター Tim Peters のありがたいお言葉</p>
+<p>Metaclasses are deeper magic than 99% of users should ever worry about.
+If you wonder whether you need them, you don&#8217;t (the people who actually
+need them know with certainty that they need them, and don&#8217;t need an explanation about why).</p>
+<p>メタクラスは、ユーザーの99%の人が考える以上に奥が深い魔法です。 必要かどうかを悩むようなものは必要ないのです (本当にそれを必要としている人は、それが必要であることを確信しており、なぜ必要なのかなど説明の必要はありません)。</p>
+<p>&#8211; Python Guru Tim Peters&#8221;</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://www.ibm.com/developerworks/jp/linux/library/l-pymeta/">https://www.ibm.com/developerworks/jp/linux/library/l-pymeta/</a></p>
+</li>
+<li><p class="first"><a class="reference external" href="http://d.hatena.ne.jp/nishiohirokazu/20090213/1234477277">http://d.hatena.ne.jp/nishiohirokazu/20090213/1234477277</a></p>
+</li>
+</ul>
+</div>
+<div class="section" id="m-m">
+<h2>ご静聴ありがとうとございました m(_ _)m<a class="headerlink" href="#m-m" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+  <div id="help">
+      Use the left and right arrow keys or click the left and right
+      edges of the page to navigate between slides.<br>
+      (Press 'H' or navigate to hide this message.)
+  </div>
+  </body>
+  <script type="text/javascript" src="_static/js/initialize.js"></script>
+  <script type="text/javascript" src="_static/js/slides.js"></script>
+</html>
