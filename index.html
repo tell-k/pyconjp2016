@@ -355,7 +355,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <span class="n">end</span>
 
 <span class="n">spam</span> <span class="o">=</span> <span class="n">Spam</span><span class="o">.</span><span class="n">new</span><span class="p">()</span>
-<span class="c1"># 存在しないメソッド「ghost_reverse」をcall</span>
+<span class="c1"># 存在しないメソッド「ghost_reverse」をcall -&gt; method_missing 実行</span>
 <span class="n">p</span> <span class="n">spam</span><span class="o">.</span><span class="n">ghost_reverse</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &#39;maps&#39;</span>
 </pre></div>
 </td></tr></table></div>
@@ -386,7 +386,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
       <span class="k">return</span> <span class="n">_reverse</span>
 
 <span class="n">spam</span> <span class="o">=</span> <span class="n">Spam</span><span class="p">()</span>
-<span class="c1"># spam.gohsrt_revers にアクセス -&gt; _reverse 関数がreturn -&gt; _reverse関数をcall</span>
+<span class="c1"># spam.ghost_reverse にアクセス -&gt; _reverse 関数がreturn -&gt; _reverse関数をcall</span>
 <span class="k">print</span><span class="p">(</span><span class="n">spam</span><span class="o">.</span><span class="n">ghost_reverse</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">))</span> <span class="c1"># =&gt; &#39;maps&#39;</span>
 </pre></div>
 </td></tr></table></div>
