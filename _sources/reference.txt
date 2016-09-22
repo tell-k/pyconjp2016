@@ -150,7 +150,7 @@ Ruby、Pythonで動的ディスパッチ/動的メソッド定義
 クラスマクロ
  http://qiita.com/mr-myself/items/b4f44a908ce6a190b81d#2-4
 
-Javascript
+JavaScriptガイド > メタプログラミング
  https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Meta_programming
 
 メタプログラミングをして割に合うかの判断基準：処理を1箇所に局所化できる
