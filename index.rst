@@ -277,7 +277,7 @@ Ghost Method
  end
 
  spam = Spam.new()
- # 存在しないメソッド「ghost_reverse」をcall
+ # 存在しないメソッド「ghost_reverse」をcall -> method_missing 実行
  p spam.ghost_reverse('spam') # => 'maps'
 
 Ghost Method
@@ -299,7 +299,7 @@ Ghost Method
        return _reverse
 
  spam = Spam()
- # spam.gohsrt_revers にアクセス -> _reverse 関数がreturn -> _reverse関数をcall
+ # spam.ghost_reverse にアクセス -> _reverse 関数がreturn -> _reverse関数をcall
  print(spam.ghost_reverse('spam')) # => 'maps'
 
 Ghost Method - bit.ly
