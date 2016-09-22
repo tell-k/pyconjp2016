@@ -964,7 +964,6 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>Descriptor<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>セットした値を二乗して返すディスクリプタ</li>
-<li><code class="docutils literal"><span class="pre">&#64;property</span></code> デコレーターも中でデータディスクリプタを作ってる</li>
 </ul>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -1017,7 +1016,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li>ディスクリプタの例を見る前に。</li>
 <li>Pythonオブジェクトの属性へのアクセスには優先順位があります</li>
-<li>オブジェクトの属性アクセスをすると**必ず** <code class="docutils literal"><span class="pre">__getattribute__</span></code> が呼ばれます</li>
+<li>オブジェクトの属性アクセスをすると <strong>必ず</strong> <code class="docutils literal"><span class="pre">__getattribute__</span></code> が呼ばれます</li>
 <li><code class="docutils literal"><span class="pre">__getattribute__</span></code> は下記の順番でデータを取得しようとします。</li>
 </ul>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">データディスクリプタからデータを取得</span>
@@ -1030,7 +1029,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>Descriptor - reify<a class="headerlink" href="#descriptor-reify" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Pyramid(<a class="reference external" href="https://github.com/Pylons/pyramid/">https://github.com/Pylons/pyramid/</a>) の メソッドデコレータ</li>
-<li>属性アクセスの優先順位を生かしたDescriptorの実装をしています。</li>
+<li>属性アクセスの優先順位を生かした <strong>Descriptor</strong> の実装をしています。</li>
 <li>1度アクセスしたメソッドの実行結果をキャッシュ</li>
 <li>2回目の以降はメソッドの実行を省略できる</li>
 </ul>
