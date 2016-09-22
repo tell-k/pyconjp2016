@@ -262,7 +262,7 @@ Dynamic Dispatch/Method
 Ghost Method
 =======================================
 
-* Ruby には ``method_missing`` メソッドがクラスに備わっています。
+* Ruby には ``method_missing`` というメソッドがクラスに備わっています。
 * ``method_missing``  によって **該当のないメソッドの呼び出し** に応答する
 * 別のオブジェクトにメソッドを呼び出し転送することにも使える( **Dynamic Proxy** )
 
@@ -691,9 +691,9 @@ Descriptor
 =======================================
 
 * オブジェクトの属性アクセスをカスタマイズするための仕組み
-* データディスクリプタ ... ``__get__`` , ``__set__`` の両方実装が必要
+* データディスクリプタ ... ``__get__`` , ``__set__`` の最低限両方実装が必要
 * 非データディスクリプタ ... ``__get__``  のみ実装が必要
-* 実装すべきメソッド群のことを **プロトコル** といいます
+* 実装すべきメソッド群のことを、Pythonでは **プロトコル** といいます
 * http://docs.python.jp/3.5/howto/descriptor.html
 * `Python を支える技術 ディスクリプタ編 <http://qiita.com/knzm/items/a8a0fead6e1706663c22>`_
 
@@ -1326,13 +1326,12 @@ Macro
 ===============================
 
 * https://github.com/tell-k/pyconjp2016/blob/master/reference.rst
-* Webページ や 書籍 の著者の皆さんありがとうございます。
+* Webページ や 書籍 の著者の皆さん 本当に ありがとうございます。
 
 Special Thanks
 ===============================
 
-* 忙しい合間を縫ってレビューしてくれた
-* @shimizukawaさん @aodagさん @mahata
+* 忙しい合間を縫ってレビューしてくれた `@shimizukawa <https://twitter.com/shimizukawa>`_ さん、 `@aodag <https://twitter.com/aodag>`_ さん、 `@mahata <https://twitter.com/mahata>`_ さん
 * ありがとうございます m(_ _)m
 
 必要かどうかは悩むものは必要ない
