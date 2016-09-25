@@ -517,7 +517,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
  9
 10
 11
-12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+12
+13
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
 <span class="k">def</span> <span class="nf">bye</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="k">print</span><span class="p">(</span><span class="s1">&#39;ByeBye&#39;</span><span class="p">)</span>
 
@@ -527,7 +529,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 
 <span class="c1"># Bound Method を作るためにMethodTypeを利用する</span>
 <span class="kn">from</span> <span class="nn">types</span> <span class="kn">import</span> <span class="n">MethodType</span>
-<span class="n">spam</span><span class="o">.</span><span class="n">bye</span> <span class="o">=</span> <span class="n">MethodType</span><span class="p">(</span><span class="n">bye</span><span class="p">,</span> <span class="n">Spam</span><span class="p">)</span>
+<span class="c1"># 2016/09/25 修正 MethodTypeの第2引数はinstanceを渡すの正しいので修正</span>
+<span class="c1"># spam.bye = MethodType(bye, Spam) &lt;- Spamクラスではなくspamを渡すのが正しい</span>
+<span class="n">spam</span><span class="o">.</span><span class="n">bye</span> <span class="o">=</span> <span class="n">MethodType</span><span class="p">(</span><span class="n">bye</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
 <span class="n">spam</span><span class="o">.</span><span class="n">bye</span><span class="p">()</span> <span class="c1"># =&gt; &quot;ByeBye&quot;</span>
 </pre></div>
 </td></tr></table></div>
@@ -1163,6 +1167,10 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">int</span></code> の <code class="docutils literal"><span class="pre">__add__</span></code> が実行されるのでエラー</li>
 <li><code class="docutils literal"><span class="pre">__radd__</span></code> メソッドを定義すると、右を左に渡すように向きが変わる</li>
+<li>2016/09/25 追記 「向きが変わる」という表現では適切でなかったので、別記事にまとめました。<ul>
+<li><a class="reference external" href="http://qiita.com/tell-k/items/ec64a82e7883cb00a7fb">Pythonの演算子のOverloadの優先順位について</a></li>
+</ul>
+</li>
 </ul>
 <div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2

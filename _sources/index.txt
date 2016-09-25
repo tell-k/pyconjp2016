@@ -403,7 +403,9 @@ Singular method
 
  # Bound Method を作るためにMethodTypeを利用する
  from types import MethodType
- spam.bye = MethodType(bye, Spam)
+ # 2016/09/25 修正 MethodTypeの第2引数はinstanceを渡すの正しいので修正
+ # spam.bye = MethodType(bye, Spam) <- Spamクラスではなくspamを渡すのが正しい
+ spam.bye = MethodType(bye, spam)
  spam.bye() # => "ByeBye"
 
 
@@ -842,6 +844,9 @@ Operator Overload
 
 * ``int`` の ``__add__`` が実行されるのでエラー
 * ``__radd__`` メソッドを定義すると、右を左に渡すように向きが変わる
+* 2016/09/25 追記 「向きが変わる」という表現では適切でなかったので、別記事にまとめました。
+
+  * `Pythonの演算子のOverloadの優先順位について <http://qiita.com/tell-k/items/ec64a82e7883cb00a7fb>`_
 
 .. code-block:: python
  :linenos:
