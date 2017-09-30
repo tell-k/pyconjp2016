@@ -29,7 +29,7 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2>ジムリーダーもやってました(5分で陥落...)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2>ジムリーダーもやってました(5分で陥落…)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="https://pbs.twimg.com/media/Cs2O52rUMAATHRK.jpg"><img alt="https://pbs.twimg.com/media/Cs2O52rUMAATHRK.jpg" src="https://pbs.twimg.com/media/Cs2O52rUMAATHRK.jpg" style="width: 40%;" /></a>
 </div>
 <div class="section" id="beproud-inc-connpass">
@@ -48,7 +48,7 @@
 <ul class="simple">
 <li>今年はブースも出してます！</li>
 <li>シールがもらえたり、connpassの説明をしてくれたり、PyQを体験したりできるそうです！</li>
-<li>是非足を運んでみてください！(もう時間ないけど...)</li>
+<li>是非足を運んでみてください！(もう時間ないけど…)</li>
 </ul>
 </div>
 <div class="section" id="id3">
@@ -71,7 +71,7 @@
 <ul class="simple">
 <li>この <strong>メタプロラグミングRuby</strong> を参考にしつつPythonだったらどうやるのか？</li>
 <li>Pythonのメタプログラミングで出てくるトピックにはどんなものがあるのか？</li>
-<li>そういう話を広く浅くまとめてみようと思った次第です。(ごった煮ともいいます...)</li>
+<li>そういう話を広く浅くまとめてみようと思った次第です。(ごった煮ともいいます…)</li>
 </ul>
 </div>
 <div class="section" id="id5">
@@ -142,7 +142,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="id11">
 <h2>Class とは？<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">type</span></code> クラス ... 全てのクラスの雛形</li>
+<li><code class="docutils literal"><span class="pre">type</span></code> クラス … 全てのクラスの雛形</li>
 <li><code class="docutils literal"><span class="pre">type</span></code> にオブジェクトを渡すと型が帰ってきますが関数ではありません。</li>
 <li>クラス定義 は <code class="docutils literal"><span class="pre">type</span></code> クラス のインスタンス</li>
 </ul>
@@ -213,9 +213,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">name</span></code> ... クラス名</li>
-<li><code class="docutils literal"><span class="pre">bases</span></code> ... 継承元の親クラス(tuple)</li>
-<li><code class="docutils literal"><span class="pre">dict</span></code> ... 名前空間 =&gt; 属性(メソッド/プロパティ)を管理する辞書</li>
+<li><code class="docutils literal"><span class="pre">name</span></code> … クラス名</li>
+<li><code class="docutils literal"><span class="pre">bases</span></code> … 継承元の親クラス(tuple)</li>
+<li><code class="docutils literal"><span class="pre">dict</span></code> … 名前空間 =&gt; 属性(メソッド/プロパティ)を管理する辞書</li>
 </ul>
 </div>
 <div class="section" id="id15">
@@ -380,7 +380,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
 <span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
 
-  <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
       <span class="k">def</span> <span class="nf">_reverse</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
           <span class="k">return</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
       <span class="k">return</span> <span class="n">_reverse</span>
@@ -435,7 +435,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 17
 18
 19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python -- 注: python2 で書かれてます</span>
-<span class="k">def</span> <span class="nf">__getattr__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__getattr__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
   <span class="k">def</span> <span class="nf">_</span> <span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
       <span class="c1">#  self.api_url          +  func</span>
       <span class="c1"># &#39;http://api.bit.ly/v3&#39; + &#39;shorten&#39; =&gt; &#39;http://api.bit.ly/v3/shorten&#39;</span>
@@ -595,11 +595,11 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 11
 12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
 <span class="k">class</span> <span class="nc">PatchHello</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">original_hello</span> <span class="o">=</span> <span class="n">spam</span><span class="o">.</span><span class="n">hello</span> <span class="c1"># オリジナルを保存</span>
         <span class="n">spam</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="n">patch_hello</span> <span class="c1"># 差し替え</span>
         <span class="k">return</span> <span class="bp">self</span>
-    <span class="k">def</span> <span class="nf">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exec_type</span><span class="p">,</span> <span class="n">exec_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exec_type</span><span class="p">,</span> <span class="n">exec_value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
         <span class="n">spam</span><span class="o">.</span><span class="n">hello</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">original_hello</span> <span class="c1"># オジリナルを復元</span>
 
 <span class="k">with</span> <span class="n">ham</span><span class="o">.</span><span class="n">PatchHello</span><span class="p">():</span>
@@ -611,7 +611,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="monkey-patch-gevent">
 <h2>Monkey Patch - gevent<a class="headerlink" href="#monkey-patch-gevent" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>gevent ... <a class="reference external" href="http://www.gevent.org/">http://www.gevent.org/</a></li>
+<li>gevent … <a class="reference external" href="http://www.gevent.org/">http://www.gevent.org/</a></li>
 <li>非同期プログラミングをサポートする並行ライブラリ</li>
 <li>gevent の提供する処理を、Pythonの標準ライブラリにパッチをあてて利用することが可能</li>
 <li><a class="reference external" href="http://methane.github.io/gevent-tutorial-ja/#_4">Python プログラマーのための gevent チュートリアル</a></li>
@@ -726,14 +726,14 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 17</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="c1"># python --</span>
  <span class="k">class</span> <span class="nc">HelloMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
 
-     <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
+     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
 
          <span class="k">def</span> <span class="nf">_hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
              <span class="k">return</span> <span class="k">print</span><span class="p">(</span><span class="s1">&#39;My name is {}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
          <span class="c1"># 名前空間(クラス辞書) にhelloメソッドをセット</span>
          <span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_hello</span>
-         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
+         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span>
 
  <span class="k">class</span> <span class="nc">Spam</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">HelloMeta</span><span class="p">):</span> <span class="c1"># &lt;= metaclasss を指定</span>
      <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Spam&#39;</span>
@@ -811,9 +811,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
 <span class="k">class</span> <span class="nc">MethodViewType</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
         <span class="c1"># d には post , get などのメソッドがセットされている</span>
-        <span class="n">rv</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+        <span class="n">rv</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
         <span class="k">if</span> <span class="s1">&#39;methods&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
             <span class="n">methods</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">rv</span><span class="o">.</span><span class="n">methods</span> <span class="ow">or</span> <span class="p">[])</span>
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
@@ -894,11 +894,11 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 
 <span class="nd">@functools.total_ordering</span>
 <span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">score</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">score</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="n">score</span>
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">score</span>
-    <span class="k">def</span> <span class="nf">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">score</span>
 
 <span class="n">p1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -933,13 +933,13 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 18
 19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="c1"># 実装された __lt__ を使って __gt__ の比較を実現するメソッド</span>
 <span class="k">def</span> <span class="nf">_gt_from_lt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="bp">NotImplemented</span><span class="o">=</span><span class="bp">NotImplemented</span><span class="p">):</span>
-    <span class="n">op_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__lt__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+    <span class="n">op_result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__lt__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">op_result</span> <span class="ow">is</span> <span class="bp">NotImplemented</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">op_result</span>
     <span class="k">return</span> <span class="ow">not</span> <span class="n">op_result</span> <span class="ow">and</span> <span class="bp">self</span> <span class="o">!=</span> <span class="n">other</span>
 
-<span class="k">def</span> <span class="nf">total_ordering</span><span class="p">(</span><span class="n">cls</span><span class="p">):</span>
-    <span class="n">roots</span> <span class="o">=</span> <span class="p">[</span><span class="n">op</span> <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">_convert</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="bp">None</span><span class="p">)]</span>
+<span class="k">def</span> <span class="nf">total_ordering</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="n">roots</span> <span class="o">=</span> <span class="p">[</span><span class="n">op</span> <span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">_convert</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">object</span><span class="p">,</span> <span class="n">op</span><span class="p">,</span> <span class="bp">None</span><span class="p">)]</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">roots</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;must define at least one ordering operation: &lt; &gt; &lt;= &gt;=&#39;</span><span class="p">)</span>
     <span class="n">root</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">roots</span><span class="p">)</span>
@@ -947,9 +947,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
     <span class="c1"># [(&#39;__gt__&#39;, _gt_from_lt), (&#39;__le__&#39;, _le_from_lt), (&#39;__ge__&#39;, _ge_from_lt)]</span>
     <span class="k">for</span> <span class="n">opname</span><span class="p">,</span> <span class="n">opfunc</span> <span class="ow">in</span> <span class="n">_convert</span><span class="p">[</span><span class="n">root</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">opname</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">roots</span><span class="p">:</span>
-            <span class="n">opfunc</span><span class="o">.</span><span class="n">__name__</span> <span class="o">=</span> <span class="n">opname</span>
-            <span class="nb">setattr</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">opname</span><span class="p">,</span> <span class="n">opfunc</span><span class="p">)</span> <span class="c1"># クラスにメソッドを動的に定義</span>
-    <span class="k">return</span> <span class="n">cls</span>
+            <span class="n">opfunc</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">=</span> <span class="n">opname</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">opname</span><span class="p">,</span> <span class="n">opfunc</span><span class="p">)</span> <span class="c1"># クラスにメソッドを動的に定義</span>
+    <span class="k">return</span> <span class="bp">cls</span>
 </pre></div>
 </td></tr></table></div>
 </div>
@@ -957,8 +957,8 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>Descriptor<a class="headerlink" href="#descriptor" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>オブジェクトの属性アクセスをカスタマイズするための仕組み</li>
-<li>データディスクリプタ ... <code class="docutils literal"><span class="pre">__get__</span></code> , <code class="docutils literal"><span class="pre">__set__</span></code> の最低限両方実装が必要</li>
-<li>非データディスクリプタ ... <code class="docutils literal"><span class="pre">__get__</span></code>  のみ実装が必要</li>
+<li>データディスクリプタ … <code class="docutils literal"><span class="pre">__get__</span></code> , <code class="docutils literal"><span class="pre">__set__</span></code> の最低限両方実装が必要</li>
+<li>非データディスクリプタ … <code class="docutils literal"><span class="pre">__get__</span></code>  のみ実装が必要</li>
 <li>実装すべきメソッド群のことを、Pythonでは <strong>プロトコル</strong> といいます</li>
 <li><a class="reference external" href="http://docs.python.jp/3.5/howto/descriptor.html">http://docs.python.jp/3.5/howto/descriptor.html</a></li>
 <li><a class="reference external" href="http://qiita.com/knzm/items/a8a0fead6e1706663c22">Python を支える技術 ディスクリプタ編</a></li>
@@ -991,14 +991,14 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 20
 21
 22</pre></div></td><td class="code"><div class="highlight"><pre><span></span> <span class="k">class</span> <span class="nc">PowDescritor</span><span class="p">:</span>
-     <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+     <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
          <span class="c1"># # obj(= instance)が渡ってこない時はクラス属性として呼ばれている</span>
          <span class="k">if</span> <span class="ow">not</span> <span class="n">obj</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span>
          <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;_score&#39;</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
-     <span class="k">def</span> <span class="nf">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+     <span class="k">def</span> <span class="fm">__set__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
          <span class="nb">setattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;_score&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-     <span class="k">def</span> <span class="nf">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+     <span class="k">def</span> <span class="fm">__delete__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
          <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s1">&#39;_score&#39;</span><span class="p">):</span>
              <span class="k">del</span> <span class="n">obj</span><span class="o">.</span><span class="n">_value</span>
 
@@ -1084,12 +1084,12 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">reify</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="o">...</span>
 
-    <span class="k">def</span> <span class="nf">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">objtype</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__get__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inst</span><span class="p">,</span> <span class="n">objtype</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">inst</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span>
         <span class="n">val</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapped</span><span class="p">(</span><span class="n">inst</span><span class="p">)</span>
         <span class="c1"># メソッドの実行結果をダイレクトに属性辞書にセット</span>
-        <span class="nb">setattr</span><span class="p">(</span><span class="n">inst</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapped</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">inst</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapped</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">val</span>
 
 <span class="c1"># refs https://github.com/Pylons/pyramid/blob/master/pyramid/decorator.py#L39</span>
@@ -1120,9 +1120,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 7
 8
 9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span>
         <span class="k">return</span> <span class="bp">self</span>
 
@@ -1148,9 +1148,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 10
 11
 12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="c1"># value の有無で加算対象を変える other.value or other</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
@@ -1182,13 +1182,13 @@ or it gives programs greater flexibility to efficiently handle new situations wi
  8
  9
 10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">=</span> <span class="n">value</span>
-    <span class="k">def</span> <span class="nf">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">+=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span>
-   <span class="k">def</span> <span class="nf">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-       <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+   <span class="k">def</span> <span class="fm">__radd__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+       <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__add__</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
 
 <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">Spam</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">value</span> <span class="c1"># =&gt; 2</span>
 </pre></div>
@@ -1258,7 +1258,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 11
 12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ColumnOperators</span><span class="p">(</span><span class="n">Operators</span><span class="p">):</span>
 
-  <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+  <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
       <span class="sd">&quot;&quot;&quot;Implement the ``==`` operator.</span>
 
 <span class="sd">      In a column context, produces the clause ``a = b``.</span>
@@ -1377,7 +1377,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <span class="s2">        return _tuple.__new__(_cls, ({arg_list}))</span>
 <span class="s2"> &quot;&quot;&quot;</span>
 
- <span class="n">namespace</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">__name__</span><span class="o">=</span><span class="s1">&#39;namedtuple_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">typename</span><span class="p">)</span>
+ <span class="n">namespace</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="vm">__name__</span><span class="o">=</span><span class="s1">&#39;namedtuple_</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">typename</span><span class="p">)</span>
  <span class="k">exec</span><span class="p">(</span><span class="n">class_definition</span><span class="p">,</span> <span class="n">namespace</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></div>
@@ -1412,7 +1412,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <span class="s2">    def hello(self):</span>
 <span class="s2">        print(&#39;Hello&#39;)</span>
 <span class="s2">&quot;&quot;&quot;</span>
-<span class="k">exec</span><span class="p">(</span><span class="n">spam_class</span><span class="p">,</span> <span class="n">spam_module</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)</span> <span class="c1"># spamモジュールの名前空間に所属させる</span>
+<span class="k">exec</span><span class="p">(</span><span class="n">spam_class</span><span class="p">,</span> <span class="n">spam_module</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span> <span class="c1"># spamモジュールの名前空間に所属させる</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s1">&#39;spam&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">spam_module</span>
 
 <span class="kn">import</span> <span class="nn">spam</span>
@@ -1438,12 +1438,12 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 </ul>
 </div>
 <div class="section" id="dsl-ploblem-of-with-statement">
-<h2>DSL - ploblem of &#8216;with statement&#8217;<a class="headerlink" href="#dsl-ploblem-of-with-statement" title="Permalink to this headline">¶</a></h2>
+<h2>DSL - ploblem of ‘with statement’<a class="headerlink" href="#dsl-ploblem-of-with-statement" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>ブロックが必ず実行されてしまう -&gt; スキップ可能にしたい</li>
 <li>スコープが共有されてしまう -&gt; スコープを独立させたい</li>
 <li>スキップ可能 <code class="docutils literal"><span class="pre">with</span></code> に関しては過去にPEPで提案済み。だが却下。</li>
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0377/">PEP 377 &#8211; Allow __enter__() methods to skip the statement body</a></li>
+<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0377/">PEP 377 – Allow __enter__() methods to skip the statement body</a></li>
 <li>アイディアはあるが、ここでは割愛。興味がある人はgistを参照してください。</li>
 <li><a class="reference external" href="https://gist.github.com/tell-k/c7552ef551f06620e2f029f1495fe173">https://gist.github.com/tell-k/c7552ef551f06620e2f029f1495fe173</a></li>
 </ul>
@@ -1534,7 +1534,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="open-class-forbiddenfruit">
 <h2>Open Class - forbiddenfruit<a class="headerlink" href="#open-class-forbiddenfruit" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/clarete/forbiddenfruit">https://github.com/clarete/forbiddenfruit</a> ... <strong>禁断の果実</strong></li>
+<li><a class="reference external" href="https://github.com/clarete/forbiddenfruit">https://github.com/clarete/forbiddenfruit</a> … <strong>禁断の果実</strong></li>
 <li><strong>名前からしてヤバイ</strong></li>
 <li><code class="docutils literal"><span class="pre">ctypes</span></code> モジュールを使って、組み込み型にもパッチを当てることが可能</li>
 <li><code class="docutils literal"><span class="pre">ctypes</span></code> モジュールにある Python C API の機能を利用して実現</li>
@@ -1727,7 +1727,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li>インポート時に処理をフックさせてカスタマイズができる</li>
 <li>特定のモジュールを読み込んだら、自動的にコードを生成/変更に利用できる</li>
-<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0302/">PEP 302 &#8211; New Import Hooks</a></li>
+<li><a class="reference external" href="https://www.python.org/dev/peps/pep-0302/">PEP 302 – New Import Hooks</a></li>
 </ul>
 </div>
 <div class="section" id="id43">
@@ -1790,7 +1790,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
      <span class="n">tree</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">src_code</span><span class="p">)</span>   <span class="c1"># 4. astでパースしてcompile</span>
      <span class="n">new_code</span> <span class="o">=</span> <span class="nb">compile</span><span class="p">(</span><span class="n">PPrintTransformer</span><span class="p">()</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="n">tree</span><span class="p">),</span> <span class="s1">&#39;&lt;string&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;exec&#39;</span><span class="p">)</span>
      <span class="n">new_mod</span> <span class="o">=</span> <span class="n">types</span><span class="o">.</span><span class="n">ModuleType</span><span class="p">(</span><span class="n">mod_name</span><span class="p">)</span> <span class="c1"># 5. 新しく「print_data」モジュールを作る</span>
-     <span class="k">exec</span><span class="p">(</span><span class="n">new_code</span><span class="p">,</span> <span class="n">new_mod</span><span class="o">.</span><span class="n">__dict__</span><span class="p">)</span> <span class="c1"># 6. モジュールの名前空間に、書き換えたコードを当てはめる</span>
+     <span class="k">exec</span><span class="p">(</span><span class="n">new_code</span><span class="p">,</span> <span class="n">new_mod</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span> <span class="c1"># 6. モジュールの名前空間に、書き換えたコードを当てはめる</span>
      <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">mod_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_mod</span>
      <span class="k">return</span> <span class="n">new_mod</span>
 </pre></div>
@@ -1824,7 +1824,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <p class="attribution">&mdash;<a class="reference external" href="http://t2y.hatenablog.jp/entry/2015/03/11/025123">Python とマクロ、インポートフックと抽象構文木</a></p>
 </div></blockquote>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/lihaoyi/macropy">https://github.com/lihaoyi/macropy</a> ... Python2 Only</li>
+<li><a class="reference external" href="https://github.com/lihaoyi/macropy">https://github.com/lihaoyi/macropy</a> … Python2 Only</li>
 <li><strong>Import Hook</strong> と <strong>ast</strong> を駆使して、機能拡張を行っている</li>
 <li>詳細は難しいので割愛</li>
 </ul>
@@ -1869,10 +1869,10 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul>
 <li><p class="first">Pythonのコアコミッター Tim Peters のありがたいお言葉</p>
 <p>Metaclasses are deeper magic than 99% of users should ever worry about.
-If you wonder whether you need them, you don&#8217;t (the people who actually
-need them know with certainty that they need them, and don&#8217;t need an explanation about why).</p>
+If you wonder whether you need them, you don’t (the people who actually
+need them know with certainty that they need them, and don’t need an explanation about why).</p>
 <p>メタクラスは、ユーザーの99%の人が考える以上に奥が深い魔法です。 必要かどうかを悩むようなものは必要ないのです (本当にそれを必要としている人は、それが必要であることを確信しており、なぜ必要なのかなど説明の必要はありません)。</p>
-<p>&#8211; Python Guru Tim Peters&#8221;</p>
+<p>– Python Guru Tim Peters”</p>
 </li>
 <li><p class="first"><a class="reference external" href="https://www.ibm.com/developerworks/jp/linux/library/l-pymeta/">https://www.ibm.com/developerworks/jp/linux/library/l-pymeta/</a></p>
 </li>
