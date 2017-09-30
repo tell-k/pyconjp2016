@@ -9,7 +9,7 @@
 =====================================
 
 .. image:: https://pbs.twimg.com/profile_images/775582814871752704/J1TaucBz_400x400.jpg
-.. image:: https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/vxjmiemo.png
+.. image:: _static/images/vxjmiemo.png
 
 * tell-k
 * BeProud.inc
@@ -26,14 +26,14 @@
 Beproud.inc - connpass
 ====================================
 
-.. figure:: https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/okbyv2hm.png
+.. figure:: _static/images/okbyv2hm.png
 
    http://connpass.com/
 
 Beproud.inc - PyQ
 ====================================
 
-.. figure:: https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/wfzr_05v.png
+.. figure:: _static/images/wfzr_05v.png
 
    https://pyq.jp/
 
@@ -51,7 +51,7 @@ Beproud.inc - PyQ
 メタプログラミングRuby
 =====================================
 
-.. figure:: https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/felfgfdn.png
+.. figure:: _static/images/felfgfdn.png
    :width: 35%
 
    https://www.oreilly.co.jp/books/9784873117430/
@@ -161,7 +161,7 @@ Class とは？
 Class とは?
 ====================================
 
-.. image:: https://dl.dropboxusercontent.com/spa/ghyn87yb4ejn5yy/cpkttkrf.png
+.. image:: _static/images/cpkttkrf.png
    :width: 50%
 
 * `Pythonのオブジェクトとクラスのビジュアルガイド – 全てがオブジェクトであるということ <http://postd.cc/pythons-objects-and-classes-a-visual-guide/>`_
