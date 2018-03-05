@@ -55,7 +55,7 @@
 <h2>目的/動機<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>ふとPythonでメタプログラミングってどうやるんだ？という疑問が湧きました</li>
-<li><code class="docutils literal"><span class="pre">metaclass</span></code> などの漠然とした知識/利用はあったけど具体的にどこまでの話なのか分からず。</li>
+<li><code class="docutils literal notranslate"><span class="pre">metaclass</span></code> などの漠然とした知識/利用はあったけど具体的にどこまでの話なのか分からず。</li>
 <li>そんな時 <strong>メタプログラミングRuby</strong> という本を思い出しました。</li>
 </ul>
 </div>
@@ -142,14 +142,14 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="id11">
 <h2>Class とは？<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">type</span></code> クラス … 全てのクラスの雛形</li>
-<li><code class="docutils literal"><span class="pre">type</span></code> にオブジェクトを渡すと型が帰ってきますが関数ではありません。</li>
-<li>クラス定義 は <code class="docutils literal"><span class="pre">type</span></code> クラス のインスタンス</li>
+<li><code class="docutils literal notranslate"><span class="pre">type</span></code> クラス … 全てのクラスの雛形</li>
+<li><code class="docutils literal notranslate"><span class="pre">type</span></code> にオブジェクトを渡すと型が帰ってきますが関数ではありません。</li>
+<li>クラス定義 は <code class="docutils literal notranslate"><span class="pre">type</span></code> クラス のインスタンス</li>
 </ul>
 </div>
 <div class="section" id="id12">
 <h2>Class とは？<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -203,9 +203,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="type">
 <h2>type<a class="headerlink" href="#type" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>もう少し <code class="docutils literal"><span class="pre">type</span></code> について詳しく見る</li>
+<li>もう少し <code class="docutils literal notranslate"><span class="pre">type</span></code> について詳しく見る</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">type</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
 
@@ -213,18 +213,18 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 </pre></div>
 </td></tr></table></div>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">name</span></code> … クラス名</li>
-<li><code class="docutils literal"><span class="pre">bases</span></code> … 継承元の親クラス(tuple)</li>
-<li><code class="docutils literal"><span class="pre">dict</span></code> … 名前空間 =&gt; 属性(メソッド/プロパティ)を管理する辞書</li>
+<li><code class="docutils literal notranslate"><span class="pre">name</span></code> … クラス名</li>
+<li><code class="docutils literal notranslate"><span class="pre">bases</span></code> … 継承元の親クラス(tuple)</li>
+<li><code class="docutils literal notranslate"><span class="pre">dict</span></code> … 名前空間 =&gt; 属性(メソッド/プロパティ)を管理する辞書</li>
 </ul>
 </div>
 <div class="section" id="id15">
 <h2>type<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">type</span></code> から動的にクラスが生成可能</li>
-<li>メソッドは <code class="docutils literal"><span class="pre">self</span></code> を受け取る関数であればいい</li>
+<li><code class="docutils literal notranslate"><span class="pre">type</span></code> から動的にクラスが生成可能</li>
+<li>メソッドは <code class="docutils literal notranslate"><span class="pre">self</span></code> を受け取る関数であればいい</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -247,9 +247,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="id16">
 <h2>type<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>ちなみに組み込みの型はだいたいクラス =&gt; <code class="docutils literal"><span class="pre">type</span></code> のインスタンス</li>
+<li>ちなみに組み込みの型はだいたいクラス =&gt; <code class="docutils literal notranslate"><span class="pre">type</span></code> のインスタンス</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -288,9 +288,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="id17">
 <h2>Class のまとめ<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Class は <code class="docutils literal"><span class="pre">type</span></code> のインスタンス</li>
-<li>Class は <code class="docutils literal"><span class="pre">type</span></code> により 動的に定義することが可能</li>
-<li>全ての型は Class であり <code class="docutils literal"><span class="pre">type</span></code> のインスタンスである</li>
+<li>Class は <code class="docutils literal notranslate"><span class="pre">type</span></code> のインスタンス</li>
+<li>Class は <code class="docutils literal notranslate"><span class="pre">type</span></code> により 動的に定義することが可能</li>
+<li>全ての型は Class であり <code class="docutils literal notranslate"><span class="pre">type</span></code> のインスタンスである</li>
 </ul>
 </div>
 <div class="section" id="dynamic-dispatch-method">
@@ -299,7 +299,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <li>メタプログラミングをやっていると、「動的に〜」というのが頻出します。</li>
 <li>その中でも <strong>動的にメソッドを実行/定義する</strong> というのがよく出てきます。</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -334,11 +334,11 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="ghost-method">
 <h2>Ghost Method<a class="headerlink" href="#ghost-method" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Ruby には <code class="docutils literal"><span class="pre">method_missing</span></code> というメソッドがクラスに備わっています。</li>
-<li><code class="docutils literal"><span class="pre">method_missing</span></code>  によって <strong>該当のないメソッドの呼び出し</strong> に応答する</li>
+<li>Ruby には <code class="docutils literal notranslate"><span class="pre">method_missing</span></code> というメソッドがクラスに備わっています。</li>
+<li><code class="docutils literal notranslate"><span class="pre">method_missing</span></code>  によって <strong>該当のないメソッドの呼び出し</strong> に応答する</li>
 <li>別のオブジェクトにメソッドを呼び出し転送することにも使える( <strong>Dynamic Proxy</strong> )</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -363,11 +363,11 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="id18">
 <h2>Ghost Method<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Python では <code class="docutils literal"><span class="pre">__getattr__</span></code> という <strong>スペシャルメソッド</strong> が利用できる</li>
-<li><code class="docutils literal"><span class="pre">__getattr__</span></code> は 該当のない <strong>属性のアクセス時</strong> に呼ばれる</li>
-<li>Rubyの <code class="docutils literal"><span class="pre">method_missing</span></code> はメソッドが呼び出されて初めて実行されます</li>
+<li>Python では <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code> という <strong>スペシャルメソッド</strong> が利用できる</li>
+<li><code class="docutils literal notranslate"><span class="pre">__getattr__</span></code> は 該当のない <strong>属性のアクセス時</strong> に呼ばれる</li>
+<li>Rubyの <code class="docutils literal notranslate"><span class="pre">method_missing</span></code> はメソッドが呼び出されて初めて実行されます</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -397,7 +397,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <li>Python の <strong>Ghost Method</strong> の利用例</li>
 <li><a class="reference external" href="https://github.com/hellp/bitlyapi/">https://github.com/hellp/bitlyapi/</a> (大分古い。Python2のみサポート)</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -416,7 +416,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li>メソッドをAPIのエンドポイントのパスとして扱う</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -462,7 +462,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <li>特定のオブジェクト <strong>だけに</strong> 動的にメソッドを追加する</li>
 <li>Rubyでは <strong>特異メソッド</strong> と呼ばれる機能</li>
 </ul>
-<div class="highlight-ruby"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-ruby notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -492,7 +492,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <li>束縛されている = <strong>Bound Method</strong></li>
 <li>束縛されてない = <strong>Unbound Method</strong></li>
 </ul>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># python --</span>
 <span class="k">class</span> <span class="nc">Spam</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
@@ -506,7 +506,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 </div>
 <div class="section" id="id21">
 <h2>Singular method<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -541,9 +541,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li>元のコードを変更することなく、動的にコードを拡張/変更する事の総称です。</li>
 <li>ライブラリのコードを直接変えたくない時とかに利用します</li>
-<li>テスト系のライブラリ( <code class="docutils literal"><span class="pre">unittest.mock.patch</span></code> 等) でおなじみ</li>
+<li>テスト系のライブラリ( <code class="docutils literal notranslate"><span class="pre">unittest.mock.patch</span></code> 等) でおなじみ</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -579,10 +579,10 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>Monkey Patch<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>どこでパッチを当ててるのか分からなくなったりすると <strong>地獄</strong></li>
-<li>例えば <code class="docutils literal"><span class="pre">with</span></code> を 利用するなりして影響範囲を限定的にするのが良い</li>
+<li>例えば <code class="docutils literal notranslate"><span class="pre">with</span></code> を 利用するなりして影響範囲を限定的にするのが良い</li>
 <li>あとは、必ずオリジナルに処理に戻せる手段を用意しましょう</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -616,7 +616,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <li>gevent の提供する処理を、Pythonの標準ライブラリにパッチをあてて利用することが可能</li>
 <li><a class="reference external" href="http://methane.github.io/gevent-tutorial-ja/#_4">Python プログラマーのための gevent チュートリアル</a></li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -648,7 +648,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 </div>
 <div class="section" id="id23">
 <h2>Monkey Patch - gevent<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -694,20 +694,20 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>Metaclass<a class="headerlink" href="#metaclass" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><strong>Metaclass</strong> = クラスを生成する雛形となるクラス</li>
-<li>デフォルトは <code class="docutils literal"><span class="pre">type</span></code> が <code class="docutils literal"><span class="pre">metaclass</span></code> として設定されてます</li>
-<li><strong>Metaclass</strong> を <code class="docutils literal"><span class="pre">type</span></code> 以外のクラスに差し替え可能</li>
+<li>デフォルトは <code class="docutils literal notranslate"><span class="pre">type</span></code> が <code class="docutils literal notranslate"><span class="pre">metaclass</span></code> として設定されてます</li>
+<li><strong>Metaclass</strong> を <code class="docutils literal notranslate"><span class="pre">type</span></code> 以外のクラスに差し替え可能</li>
 <li>つまり <strong>クラス定義そのものをカスタマイズ可能</strong> という事です</li>
-<li>代表的な例として抽象基底クラスを作る <code class="docutils literal"><span class="pre">abc.ABCMeta</span></code> などがあります。</li>
+<li>代表的な例として抽象基底クラスを作る <code class="docutils literal notranslate"><span class="pre">abc.ABCMeta</span></code> などがあります。</li>
 <li><a class="reference external" href="http://docs.python.jp/3.5/library/abc.html">http://docs.python.jp/3.5/library/abc.html</a></li>
 </ul>
 </div>
 <div class="section" id="id24">
 <h2>Metaclass<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>クラス定義すると、自動的に <code class="docutils literal"><span class="pre">hello</span></code> メソッド を追加する <strong>Metaclass</strong> を作成</li>
-<li><strong>Metaclass</strong> を差し替える時はクラス宣言時に <code class="docutils literal"><span class="pre">metaclass</span></code> を指定するだけです。</li>
+<li>クラス定義すると、自動的に <code class="docutils literal notranslate"><span class="pre">hello</span></code> メソッド を追加する <strong>Metaclass</strong> を作成</li>
+<li><strong>Metaclass</strong> を差し替える時はクラス宣言時に <code class="docutils literal notranslate"><span class="pre">metaclass</span></code> を指定するだけです。</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -746,8 +746,8 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="id25">
 <h2>Metaclass<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>名前空間だけを変更したいのであれば <code class="docutils literal"><span class="pre">__prepare__</span></code> が使えます</li>
-<li>例えば名前空間を <code class="docutils literal"><span class="pre">dict</span></code> から <code class="docutils literal"><span class="pre">OrderedDict</span></code> に変えるなど。</li>
+<li>名前空間だけを変更したいのであれば <code class="docutils literal notranslate"><span class="pre">__prepare__</span></code> が使えます</li>
+<li>例えば名前空間を <code class="docutils literal notranslate"><span class="pre">dict</span></code> から <code class="docutils literal notranslate"><span class="pre">OrderedDict</span></code> に変えるなど。</li>
 <li><a class="reference external" href="http://docs.python.jp/3.5/reference/datamodel.html#preparing-the-class-namespace">http://docs.python.jp/3.5/reference/datamodel.html#preparing-the-class-namespace</a></li>
 </ul>
 </div>
@@ -755,11 +755,11 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>Metaclass - Flask MethodView<a class="headerlink" href="#metaclass-flask-methodview" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Flask(<a class="reference external" href="http://flask.pocoo.org/">http://flask.pocoo.org/</a>) -&gt; Webフレームワーク</li>
-<li>HTTPリクエストと受け付ける <code class="docutils literal"><span class="pre">View</span></code> というクラスがある</li>
-<li>クラス変数 <code class="docutils literal"><span class="pre">View.methods</span></code> = アクセスを許可するHTTPメソッドのリストが指定可能</li>
-<li><code class="docutils literal"><span class="pre">MethodView</span></code> は 実装されたメソッド名から自動的に <code class="docutils literal"><span class="pre">methods</span></code> という属性を設定してくれる</li>
+<li>HTTPリクエストと受け付ける <code class="docutils literal notranslate"><span class="pre">View</span></code> というクラスがある</li>
+<li>クラス変数 <code class="docutils literal notranslate"><span class="pre">View.methods</span></code> = アクセスを許可するHTTPメソッドのリストが指定可能</li>
+<li><code class="docutils literal notranslate"><span class="pre">MethodView</span></code> は 実装されたメソッド名から自動的に <code class="docutils literal notranslate"><span class="pre">methods</span></code> という属性を設定してくれる</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -787,9 +787,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>Metaclass - Flask MethodView<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>名前空間(クラス辞書)から定義されたメソッド名を取得</li>
-<li>クラス変数 <code class="docutils literal"><span class="pre">methods</span></code> に自動的にセット</li>
+<li>クラス変数 <code class="docutils literal notranslate"><span class="pre">methods</span></code> に自動的にセット</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -836,7 +836,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li>関数をラップする関数を生成する ≒ コードを記述するコード</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -865,15 +865,15 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li>メタっぽいデコレーターの例</li>
 <li>一部の比較メソッドするだけで、全ての順序比較が可能なクラスを作ってくれる</li>
-<li><code class="docutils literal"><span class="pre">__eq__</span></code> を実装が必要</li>
-<li><code class="docutils literal"><span class="pre">__lt__,</span> <span class="pre">__le__,</span> <span class="pre">__gt__,</span> <span class="pre">__ge__</span></code> の <strong>どれか一つ</strong> の実装が必要</li>
+<li><code class="docutils literal notranslate"><span class="pre">__eq__</span></code> を実装が必要</li>
+<li><code class="docutils literal notranslate"><span class="pre">__lt__,</span> <span class="pre">__le__,</span> <span class="pre">__gt__,</span> <span class="pre">__ge__</span></code> の <strong>どれか一つ</strong> の実装が必要</li>
 <li>それ以外の比較のメソッドを自動的に実装してくれる</li>
 <li><a class="reference external" href="http://docs.python.jp/3/library/functools.html#functools.total_ordering">http://docs.python.jp/3/library/functools.html#functools.total_ordering</a></li>
 </ul>
 </div>
 <div class="section" id="id27">
 <h2>Decorator - functools.total_ordering<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -913,7 +913,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 </div>
 <div class="section" id="id28">
 <h2>Decorator - functools.total_ordering<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -957,8 +957,8 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>Descriptor<a class="headerlink" href="#descriptor" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>オブジェクトの属性アクセスをカスタマイズするための仕組み</li>
-<li>データディスクリプタ … <code class="docutils literal"><span class="pre">__get__</span></code> , <code class="docutils literal"><span class="pre">__set__</span></code> の最低限両方実装が必要</li>
-<li>非データディスクリプタ … <code class="docutils literal"><span class="pre">__get__</span></code>  のみ実装が必要</li>
+<li>データディスクリプタ … <code class="docutils literal notranslate"><span class="pre">__get__</span></code> , <code class="docutils literal notranslate"><span class="pre">__set__</span></code> の最低限両方実装が必要</li>
+<li>非データディスクリプタ … <code class="docutils literal notranslate"><span class="pre">__get__</span></code>  のみ実装が必要</li>
 <li>実装すべきメソッド群のことを、Pythonでは <strong>プロトコル</strong> といいます</li>
 <li><a class="reference external" href="http://docs.python.jp/3.5/howto/descriptor.html">http://docs.python.jp/3.5/howto/descriptor.html</a></li>
 <li><a class="reference external" href="http://qiita.com/knzm/items/a8a0fead6e1706663c22">Python を支える技術 ディスクリプタ編</a></li>
@@ -969,7 +969,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li>セットした値を二乗して返すディスクリプタ</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1020,10 +1020,10 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li>ディスクリプタの例を見る前に。</li>
 <li>Pythonオブジェクトの属性へのアクセスには優先順位があります</li>
-<li>オブジェクトの属性アクセスをすると <strong>必ず</strong> <code class="docutils literal"><span class="pre">__getattribute__</span></code> が呼ばれます</li>
-<li><code class="docutils literal"><span class="pre">__getattribute__</span></code> は下記の順番でデータを取得しようとします。</li>
+<li>オブジェクトの属性アクセスをすると <strong>必ず</strong> <code class="docutils literal notranslate"><span class="pre">__getattribute__</span></code> が呼ばれます</li>
+<li><code class="docutils literal notranslate"><span class="pre">__getattribute__</span></code> は下記の順番でデータを取得しようとします。</li>
 </ul>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">データディスクリプタからデータを取得</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">データディスクリプタからデータを取得</span>
 <span class="mf">2.</span> <span class="n">属性辞書からデータを取得</span>
 <span class="mf">3.</span> <span class="n">非データディスクリプタからデータを取得</span>
 </pre></div>
@@ -1037,7 +1037,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <li>1度アクセスしたメソッドの実行結果をキャッシュ</li>
 <li>2回目の以降はメソッドの実行を省略できる</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1066,11 +1066,11 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="id32">
 <h2>Descriptor - reify<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">reify</span></code> は <strong>非データディスクリプタ</strong> = つまり属性アクセスの優先順位が一番低い</li>
+<li><code class="docutils literal notranslate"><span class="pre">reify</span></code> は <strong>非データディスクリプタ</strong> = つまり属性アクセスの優先順位が一番低い</li>
 <li>ラップしたメソッドの実行結果を <strong>属性辞書</strong> に ダイレクトにセット</li>
 <li><strong>属性辞書</strong> の方が優先順位が高いので、以降メソッドは呼ばれない</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1100,7 +1100,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>Operator Overload<a class="headerlink" href="#operator-overload" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>演算子の挙動をカスタマイズできる</li>
-<li>比較演算子(<code class="docutils literal"><span class="pre">==</span></code>, <code class="docutils literal"><span class="pre">&gt;</span></code>, <code class="docutils literal"><span class="pre">&gt;=</span></code>, <code class="docutils literal"><span class="pre">&lt;</span></code>, <code class="docutils literal"><span class="pre">&lt;=</span></code>), 算術演算子(<code class="docutils literal"><span class="pre">+</span></code>, <code class="docutils literal"><span class="pre">-</span></code>, <code class="docutils literal"><span class="pre">/</span></code>, <code class="docutils literal"><span class="pre">＊</span></code>, <code class="docutils literal"><span class="pre">%</span></code>, <code class="docutils literal"><span class="pre">//</span></code>, <code class="docutils literal"><span class="pre">**</span></code>),</li>
+<li>比較演算子(<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>), 算術演算子(<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">＊</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">//</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>),</li>
 <li>方法はオブジェクトに演算子に対応する <strong>Special Method</strong> を実装する</li>
 <li><a class="reference external" href="http://docs.python.jp/3.5/reference/datamodel.html#special-method-names">http://docs.python.jp/3.5/reference/datamodel.html#special-method-names</a></li>
 </ul>
@@ -1108,10 +1108,10 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="id33">
 <h2>Operator Overload<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>オブジェクト同士を「 <code class="docutils literal"><span class="pre">+</span></code> 」演算子で加算できるようにする</li>
+<li>オブジェクト同士を「 <code class="docutils literal notranslate"><span class="pre">+</span></code> 」演算子で加算できるようにする</li>
 <li>左に右を加算</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -1134,9 +1134,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="id34">
 <h2>Operator Overload<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>数値リテラルも <code class="docutils literal"><span class="pre">Spam.value</span></code> に加算できるようにしたい</li>
+<li>数値リテラルも <code class="docutils literal notranslate"><span class="pre">Spam.value</span></code> に加算できるようにしたい</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1165,14 +1165,14 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="id35">
 <h2>Operator Overload<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">int</span></code> の <code class="docutils literal"><span class="pre">__add__</span></code> が実行されるのでエラー</li>
-<li><code class="docutils literal"><span class="pre">__radd__</span></code> メソッドを定義すると、右を左に渡すように向きが変わる</li>
+<li><code class="docutils literal notranslate"><span class="pre">int</span></code> の <code class="docutils literal notranslate"><span class="pre">__add__</span></code> が実行されるのでエラー</li>
+<li><code class="docutils literal notranslate"><span class="pre">__radd__</span></code> メソッドを定義すると、右を左に渡すように向きが変わる</li>
 <li>2016/09/25 追記 「向きが変わる」という表現では適切でなかったので、別記事にまとめました。<ul>
 <li><a class="reference external" href="http://qiita.com/tell-k/items/ec64a82e7883cb00a7fb">Pythonの演算子のOverloadの優先順位について</a></li>
 </ul>
 </li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1196,7 +1196,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 </div>
 <div class="section" id="operator-overload-sqlalchemy">
 <h2>Operator Overload - SQLAlchemy<a class="headerlink" href="#operator-overload-sqlalchemy" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1243,9 +1243,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="id36">
 <h2>Operator Overload - SQLAlchemy<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">Column</span></code> クラスに演算子をOverloadする実装がされています。</li>
+<li><code class="docutils literal notranslate"><span class="pre">Column</span></code> クラスに演算子をOverloadする実装がされています。</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1275,10 +1275,10 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>eval/exec<a class="headerlink" href="#eval-exec" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>文字列をPythonコードとして評価/実行</li>
-<li><code class="docutils literal"><span class="pre">eval</span></code> は単一の式を評価, <code class="docutils literal"><span class="pre">exec</span></code> は複数の文を評価</li>
+<li><code class="docutils literal notranslate"><span class="pre">eval</span></code> は単一の式を評価, <code class="docutils literal notranslate"><span class="pre">exec</span></code> は複数の文を評価</li>
 <li><a class="reference external" href="http://docs.python.jp/3.5/library/functions.html#eval">http://docs.python.jp/3.5/library/functions.html#eval</a></li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1314,7 +1314,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <li>名前付きの <strong>tuple</strong></li>
 <li><strong>tuple</strong> を継承したクラスが動的に生成</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1338,7 +1338,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 </div>
 <div class="section" id="id37">
 <h2>eval/exec - namedtuple<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1386,10 +1386,10 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>Dynamic Module<a class="headerlink" href="#dynamic-module" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>動的にモジュールを生成する</li>
-<li><code class="docutils literal"><span class="pre">types</span></code> に <strong>モジュール</strong> ための型( <code class="docutils literal"><span class="pre">types.ModuleType</span></code> )が存在する</li>
+<li><code class="docutils literal notranslate"><span class="pre">types</span></code> に <strong>モジュール</strong> ための型( <code class="docutils literal notranslate"><span class="pre">types.ModuleType</span></code> )が存在する</li>
 <li>その型を使って動的に生成することが可能</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1428,11 +1428,11 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <li>特定の作業の遂行や問題の解決に特化して設計された言語</li>
 <li>言語機能を利用したDSL -&gt; 内部DSL</li>
 <li><a class="reference external" href="http://www.slideshare.net/kwatch/fantastic-dsl-in-python">Fantastic DSL in Python</a><ul>
-<li><code class="docutils literal"><span class="pre">with</span></code>/<code class="docutils literal"><span class="pre">for</span></code>/<code class="docutils literal"><span class="pre">decorator</span></code> を駆使してDSLを実現するテクニックが説明されています</li>
+<li><code class="docutils literal notranslate"><span class="pre">with</span></code>/<code class="docutils literal notranslate"><span class="pre">for</span></code>/<code class="docutils literal notranslate"><span class="pre">decorator</span></code> を駆使してDSLを実現するテクニックが説明されています</li>
 </ul>
 </li>
 <li><a class="reference external" href="http://atsuoishimoto.hatenablog.com/entry/20120821/1345537686">PythonはDSLが苦手？</a><ul>
-<li>後述する <code class="docutils literal"><span class="pre">ast</span></code> モジュールを使ってDSLを実現</li>
+<li>後述する <code class="docutils literal notranslate"><span class="pre">ast</span></code> モジュールを使ってDSLを実現</li>
 </ul>
 </li>
 </ul>
@@ -1442,12 +1442,12 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li>ブロックが必ず実行されてしまう -&gt; スキップ可能にしたい</li>
 <li>スコープが共有されてしまう -&gt; スコープを独立させたい</li>
-<li>スキップ可能 <code class="docutils literal"><span class="pre">with</span></code> に関しては過去にPEPで提案済み。だが却下。</li>
+<li>スキップ可能 <code class="docutils literal notranslate"><span class="pre">with</span></code> に関しては過去にPEPで提案済み。だが却下。</li>
 <li><a class="reference external" href="https://www.python.org/dev/peps/pep-0377/">PEP 377 – Allow __enter__() methods to skip the statement body</a></li>
 <li>アイディアはあるが、ここでは割愛。興味がある人はgistを参照してください。</li>
 <li><a class="reference external" href="https://gist.github.com/tell-k/c7552ef551f06620e2f029f1495fe173">https://gist.github.com/tell-k/c7552ef551f06620e2f029f1495fe173</a></li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -1473,7 +1473,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <li>ただ、ここまで見たきたように、動的にクラスに属性を追加することはできます。</li>
 <li>しかし <strong>組み込みの型</strong> に属性を付加することはできません。</li>
 </ul>
-<div class="highlight-ruby"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-ruby notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -1490,7 +1490,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <span class="nb">p</span> <span class="s1">&#39;Spam&#39;</span><span class="o">.</span><span class="n">hello</span><span class="p">()</span> <span class="c1"># =&gt; &quot;Hello! String is Spam&quot;</span>
 </pre></div>
 </td></tr></table></div>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -1508,7 +1508,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <li>組み込み型もクラスなので継承は可能</li>
 <li>クラスを継承して、独自の属性を追加することはできます。</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -1536,11 +1536,11 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/clarete/forbiddenfruit">https://github.com/clarete/forbiddenfruit</a> … <strong>禁断の果実</strong></li>
 <li><strong>名前からしてヤバイ</strong></li>
-<li><code class="docutils literal"><span class="pre">ctypes</span></code> モジュールを使って、組み込み型にもパッチを当てることが可能</li>
-<li><code class="docutils literal"><span class="pre">ctypes</span></code> モジュールにある Python C API の機能を利用して実現</li>
+<li><code class="docutils literal notranslate"><span class="pre">ctypes</span></code> モジュールを使って、組み込み型にもパッチを当てることが可能</li>
+<li><code class="docutils literal notranslate"><span class="pre">ctypes</span></code> モジュールにある Python C API の機能を利用して実現</li>
 <li>ですが <strong>メタプログラミングの範疇</strong> を逸脱してる気がします。。。</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -1562,7 +1562,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <li><strong>抽象構文木(Abstract Syntax Tree)</strong> を扱う標準ライブラリ</li>
 <li>Pythonのソースコードを <strong>抽象構文木</strong> にして変換して、ソースコードを操作することが可能</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1594,7 +1594,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 </div>
 <div class="section" id="id40">
 <h2>ast<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1642,7 +1642,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>ast<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><strong>抽象構文木(Abstract Syntax Tree)</strong> を書き換えたい</li>
-<li><code class="docutils literal"><span class="pre">ast.NodeTransformer</span></code> を利用してコードを書き換える事ができる</li>
+<li><code class="docutils literal notranslate"><span class="pre">ast.NodeTransformer</span></code> を利用してコードを書き換える事ができる</li>
 <li><a class="reference external" href="http://qiita.com/t2y/items/c8877cf5d3d22cdcf2a8">Python の ast モジュール入門 (NodeVisitor を使う)</a></li>
 <li><a class="reference external" href="https://greentreesnakes.readthedocs.io/en/latest/index.html">Green Tree Snakes - the missing Python AST docs</a></li>
 </ul>
@@ -1650,9 +1650,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <div class="section" id="ast-nodetransformer">
 <h2>ast - NodeTransformer<a class="headerlink" href="#ast-nodetransformer" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">print</span></code> を <code class="docutils literal"><span class="pre">pprint</span></code> に変えたい</li>
+<li><code class="docutils literal notranslate"><span class="pre">print</span></code> を <code class="docutils literal notranslate"><span class="pre">pprint</span></code> に変えたい</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1682,7 +1682,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 </div>
 <div class="section" id="id42">
 <h2>ast - NodeTransformer<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1734,9 +1734,9 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <h2>Import Hook<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>先ほどの <strong>ast</strong> の例と組み合わせる</li>
-<li>特定のモジュールを <code class="docutils literal"><span class="pre">import</span></code> したら、 <code class="docutils literal"><span class="pre">print</span></code> を <code class="docutils literal"><span class="pre">pprint</span></code> に置き換える</li>
+<li>特定のモジュールを <code class="docutils literal notranslate"><span class="pre">import</span></code> したら、 <code class="docutils literal notranslate"><span class="pre">print</span></code> を <code class="docutils literal notranslate"><span class="pre">pprint</span></code> に置き換える</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -1754,7 +1754,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 </div>
 <div class="section" id="id44">
 <h2>Import Hook<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1801,7 +1801,7 @@ or it gives programs greater flexibility to efficiently handle new situations wi
 <ul class="simple">
 <li><cite>sys.meta_path</cite> に追加することで <strong>Import Hook</strong> が有効になる</li>
 </ul>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4

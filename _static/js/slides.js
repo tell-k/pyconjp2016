@@ -451,6 +451,7 @@ function addFontStyle() {
 };
 
 function addGeneralStyle() {
+
   var el = document.createElement('link');
   el.rel = 'stylesheet';
   el.type = 'text/css';
@@ -472,23 +473,21 @@ function showHelpText() {
 };
 
 function handleDomLoaded() {
-  slideEls = document.querySelectorAll('body > div.section > div.section');
+  window.setTimeout(function() {
 
-  setupFrames();
+    slideEls = document.querySelectorAll('body > div.section > div.section');
+    setupFrames();
+    addFontStyle();
+    addGeneralStyle();
+    addEventListeners();
+    updateSlides();
+    setupInteraction();
+    if (window.location.hostname == "localhost" || window.location.hostname == "127.0.0.1" || window.location.hostname == "::1") {
+      hideHelpText();
+    }
+    document.body.classList.add('loaded');
 
-  addFontStyle();
-  addGeneralStyle();
-  addEventListeners();
-
-  updateSlides();
-
-  setupInteraction();
-
-  if (window.location.hostname == "localhost" || window.location.hostname == "127.0.0.1" || window.location.hostname == "::1") {
-    hideHelpText();
-  }
-
-  document.body.classList.add('loaded');
+  }, 1000);
 };
 
 function initialize() {
@@ -497,7 +496,6 @@ function initialize() {
   if (window['_DEBUG']) {
     PERMANENT_URL_PREFIX = '../';
   }
-
   if (window['_DCL']) {
     handleDomLoaded();
   } else {
