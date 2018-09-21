@@ -46,8 +46,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Test'
-copyright = u'2015, tell-k'
+project = u'pyconjp 2016'
+copyright = u'2016, tell-k'
 author = u'tell-k'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -115,6 +115,7 @@ html_theme = "gopher"
 # documentation.
 #html_theme_options = {}
 html_theme_options  = {
+   'canonical':'https://tell-k.github.io/pyconjp2016',
    'ogp_image':'https://tell-k.github.io/pyconjp2016/_static/img/ogp.png',
    'ogp_description': 'PyCon JP 2016 の発表資料です。Pythonで出来るメタプログラミングの概要を一通り説明します。Pythonにおけるメタプログラミングの概要から、それがどのような場面で利用されているかをお話しします。',
 
