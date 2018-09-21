@@ -31,12 +31,12 @@ var initDoms = function(){
         $(e.firstElementChild).addClass("special");
      }
      if (i == 0) {
-       $(e).find('p.speakernote').each(function(i, e) {
+       $(e).find('p.presenter-notes').each(function(i, e) {
          titleNotes.push(nl2br($(e).text()));
        });
      } else {
        var notes = [];
-       $(e).find('p.speakernote').each(function(i, e) {
+       $(e).find('p.presenter-notes').each(function(i, e) {
          notes.push(nl2br($(e).text()));
        });
        sections.push({'Notes': notes});

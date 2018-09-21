@@ -225,7 +225,7 @@
 
     position: relative;
 
-    page-break-inside: never;
+    page-break-inside: avoid;
     page-break-after: always;
 
     overflow: hidden;
@@ -834,6 +834,6 @@ dl.glossary dt {
   font-weight: 600;
 }
 
-.speakernote {
+.presenter-notes {
   display: none;
 }

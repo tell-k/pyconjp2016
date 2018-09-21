@@ -457,6 +457,8 @@ function scaleSmallViewports() {
   el.style.transform = transform;
 }
 
+
+
 function addEventListeners() {
   document.addEventListener('keydown', handleBodyKeyDown, false);
   var resizeTimeout;
@@ -468,6 +470,19 @@ function addEventListeners() {
       scaleSmallViewports();
     }, 50);
   });
+
+  // Force reset el.style.transform when print page
+  var beforePrint = function() {
+    var el = document.querySelector('body > div.section');
+    el.style.transform = '';
+  };
+  if (window.matchMedia) {
+    var mediaQueryList = window.matchMedia('print');
+    mediaQueryList.addListener(function(mql) {
+      if (mql.matches) beforePrint();
+    });
+  }
+  window.onbeforeprint = beforePrint;
 }
 
 /* Initialization */
