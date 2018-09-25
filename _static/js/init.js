@@ -27,7 +27,8 @@ var initDoms = function(){
   });
 
   $("body > div.section > div.section").each(function(i, e){
-     if(e.children.length == 1) {
+     var notesLength = $(e).find('p.presenter-notes').length;
+     if((e.children.length - notesLength) == 1) {
         $(e.firstElementChild).addClass("special");
      }
      if (i == 0) {

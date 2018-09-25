@@ -232,9 +232,12 @@
   }
 
   h2 {
+    margin-bottom: 20px !important;
+  }
+
+  h2.special {
     position: static !important;
-    margin-top: 400px !important;
-    margin-bottom: 100px !important;
+    padding-top: 500px !important;
   }
 
   div.code {
@@ -337,12 +340,13 @@ h2 {
 }
 
 h2.special {
+  font-size: 45px;
   position: absolute;
   bottom: 150px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 27px;
   line-height: 36px;
 
   padding: 0;
@@ -357,7 +361,7 @@ h3 {
 }
 
 h4 {
-  font-size: 20px;
+  font-size: 25px;
   line-height: 36px;
 
   padding: 0;
@@ -372,7 +376,7 @@ h4 {
 }
 
 h5 {
-  font-size: 20px;
+  font-size: 22px;
   line-height: 36px;
 
   padding: 0;
