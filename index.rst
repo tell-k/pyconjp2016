@@ -8,7 +8,7 @@
 君の名は
 =====================================
 
-.. image:: https://pbs.twimg.com/profile_images/775582814871752704/J1TaucBz_400x400.jpg
+.. image:: https://pbs.twimg.com/profile_images/1045138776224231425/3GD8eWeG_200x200.jpg
 .. image:: _static/images/vxjmiemo.png
 
 * tell-k
