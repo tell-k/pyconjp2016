@@ -8,7 +8,7 @@
 君の名は
 =====================================
 
-.. image:: https://pbs.twimg.com/profile_images/1045138776224231425/3GD8eWeG_200x200.jpg
+.. image:: _static/images/tell-k.png
 .. image:: _static/images/vxjmiemo.png
 
 * tell-k
@@ -20,7 +20,7 @@
 ジムリーダーもやってました(5分で陥落...)
 ==================================================
 
-.. image:: https://pbs.twimg.com/media/Cs2O52rUMAATHRK.jpg
+.. image:: _static/images/Cs2O52rUMAATHRK.jpg
    :width: 40%
 
 Beproud.inc - connpass
